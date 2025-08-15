@@ -1,9 +1,14 @@
+"use client"
+
 import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import FloatingSupport from '../../components/FloatingSupport';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function PrivacyPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -13,12 +18,12 @@ export default function PrivacyPage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-green-500 text-white rounded-full px-6 py-3 mb-6">
               <span className="text-lg">🔒</span>
-              <span className="font-semibold">Privacy & Security</span>
+              <span className="font-semibold">{t('privacy.badge')}</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-              Privacy Policy
+              {t('privacy.title')}
             </h1>
-            <p className="text-xl text-gray-600">Last updated: January 2025</p>
+            <p className="text-xl text-gray-600">{t('privacy.lastUpdated')}</p>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-green-500 mx-auto mt-6 rounded-full"></div>
           </div>
 
@@ -29,30 +34,29 @@ export default function PrivacyPage() {
                   1
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                  Information We Collect
+                  {t('privacy.section1.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border-l-4 border-blue-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  We collect information you provide directly to us, such as when you create an account, 
-                  use our AI image generation service, or contact us for support.
+                  {t('privacy.section1.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-gray-700">Account information (email, username)</span>
+                    <span className="text-gray-700">{t('privacy.section1.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-gray-700">Usage data and generated images</span>
+                    <span className="text-gray-700">{t('privacy.section1.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-gray-700">Communication preferences</span>
+                    <span className="text-gray-700">{t('privacy.section1.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-gray-700">Technical information about your device and usage</span>
+                    <span className="text-gray-700">{t('privacy.section1.item4')}</span>
                   </li>
                 </ul>
               </div>
@@ -64,33 +68,33 @@ export default function PrivacyPage() {
                   2
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
-                  How We Use Your Information
+                  {t('privacy.section2.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 border-l-4 border-green-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  We use the information we collect to provide, maintain, and improve our services:
+                  {t('privacy.section2.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Process and generate AI images based on your prompts</span>
+                    <span className="text-gray-700">{t('privacy.section2.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Provide customer support and respond to inquiries</span>
+                    <span className="text-gray-700">{t('privacy.section2.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Improve our AI models and service quality</span>
+                    <span className="text-gray-700">{t('privacy.section2.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Send important updates and service notifications</span>
+                    <span className="text-gray-700">{t('privacy.section2.item4')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Ensure security and prevent fraud</span>
+                    <span className="text-gray-700">{t('privacy.section2.item5')}</span>
                   </li>
                 </ul>
               </div>
@@ -102,29 +106,29 @@ export default function PrivacyPage() {
                   3
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-yellow-600 transition-colors duration-300">
-                  Data Security
+                  {t('privacy.section3.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-8 border-l-4 border-yellow-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  We implement appropriate security measures to protect your personal information:
+                  {t('privacy.section3.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <span className="text-gray-700">Encryption of data in transit and at rest</span>
+                    <span className="text-gray-700">{t('privacy.section3.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <span className="text-gray-700">Regular security audits and updates</span>
+                    <span className="text-gray-700">{t('privacy.section3.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <span className="text-gray-700">Access controls and authentication measures</span>
+                    <span className="text-gray-700">{t('privacy.section3.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-yellow-500 rounded-full"></div>
-                    <span className="text-gray-700">Secure data centers and infrastructure</span>
+                    <span className="text-gray-700">{t('privacy.section3.item4')}</span>
                   </li>
                 </ul>
               </div>
@@ -136,30 +140,29 @@ export default function PrivacyPage() {
                   4
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-purple-600 transition-colors duration-300">
-                  Data Sharing
+                  {t('privacy.section4.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 border-l-4 border-purple-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  We do not sell, trade, or rent your personal information to third parties. 
-                  We may share information only in the following circumstances:
+                  {t('privacy.section4.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span className="text-gray-700">With your explicit consent</span>
+                    <span className="text-gray-700">{t('privacy.section4.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span className="text-gray-700">To comply with legal obligations</span>
+                    <span className="text-gray-700">{t('privacy.section4.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span className="text-gray-700">To protect our rights and safety</span>
+                    <span className="text-gray-700">{t('privacy.section4.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                    <span className="text-gray-700">With trusted service providers who assist in our operations</span>
+                    <span className="text-gray-700">{t('privacy.section4.item4')}</span>
                   </li>
                 </ul>
               </div>
@@ -171,33 +174,33 @@ export default function PrivacyPage() {
                   5
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
-                  Your Rights
+                  {t('privacy.section5.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-2xl p-8 border-l-4 border-indigo-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  You have the right to:
+                  {t('privacy.section5.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                    <span className="text-gray-700">Access and review your personal information</span>
+                    <span className="text-gray-700">{t('privacy.section5.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                    <span className="text-gray-700">Update or correct inaccurate information</span>
+                    <span className="text-gray-700">{t('privacy.section5.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                    <span className="text-gray-700">Request deletion of your data</span>
+                    <span className="text-gray-700">{t('privacy.section5.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                    <span className="text-gray-700">Opt-out of marketing communications</span>
+                    <span className="text-gray-700">{t('privacy.section5.item4')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-indigo-500 rounded-full"></div>
-                    <span className="text-gray-700">Export your data in a portable format</span>
+                    <span className="text-gray-700">{t('privacy.section5.item5')}</span>
                   </li>
                 </ul>
               </div>
@@ -209,23 +212,22 @@ export default function PrivacyPage() {
                   6
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors duration-300">
-                  Contact Us
+                  {t('privacy.section6.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-teal-50 to-green-50 rounded-2xl p-8 border-l-4 border-teal-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  If you have any questions about this Privacy Policy or our data practices, 
-                  please contact us at:
+                  {t('privacy.section6.desc')}
                 </p>
                 <div className="bg-white p-6 rounded-xl shadow-lg border border-teal-200">
                   <div className="flex items-center space-x-3 mb-3">
                     <div className="w-8 h-8 bg-teal-100 rounded-full flex items-center justify-center">
                       <span className="text-teal-600 text-lg">📧</span>
                     </div>
-                    <p className="text-teal-800 font-semibold text-lg">Email: privacy@nanobananamodle.com</p>
+                    <p className="text-teal-800 font-semibold text-lg">{t('privacy.section6.email')}</p>
                   </div>
                   <p className="text-teal-600 text-sm">
-                    We will respond to your inquiry within 24 hours.
+                    {t('privacy.section6.response')}
                   </p>
                 </div>
               </div>

@@ -1,31 +1,36 @@
+"use client"
+
 import React from 'react';
 import { Shield, Users, Award, Rocket } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const WhySection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const reasons = [
     {
       icon: Shield,
-      title: 'Privacy & Security',
-      description: 'Your prompts and generated images are completely private. We never store or share your creative content without permission.',
-      stats: '100% Private'
+      titleKey: 'why.reason1.title',
+      descKey: 'why.reason1.desc',
+      statsKey: 'why.reason1.stats'
     },
     {
       icon: Users,
-      title: 'Trusted by Creators',
-      description: 'Join over 500,000 artists, designers, and creators who rely on Nano Banana for their creative projects.',
-      stats: '500K+ Users'
+      titleKey: 'why.reason2.title',
+      descKey: 'why.reason2.desc',
+      statsKey: 'why.reason2.stats'
     },
     {
       icon: Award,
-      title: 'Industry Leading',
-      description: 'Our AI models are trained on the latest technology, delivering superior quality compared to other platforms.',
-      stats: '4.9/5 Rating'
+      titleKey: 'why.reason3.title',
+      descKey: 'why.reason3.desc',
+      statsKey: 'why.reason3.stats'
     },
     {
       icon: Rocket,
-      title: 'Constantly Improving',
-      description: 'We regularly update our AI models and add new features based on user feedback and technological advances.',
-      stats: 'Weekly Updates'
+      titleKey: 'why.reason4.title',
+      descKey: 'why.reason4.desc',
+      statsKey: 'why.reason4.stats'
     }
   ];
 
@@ -34,11 +39,10 @@ const WhySection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Why Choose Nano Banana?
+            {t('why.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            We&apos;re not just another AI image generator. Nano Banana combines cutting-edge technology 
-            with user-focused design to deliver the best text-to-image experience available today. Choose Nano Banana for superior AI art generation.
+            {t('why.subtitle')}
           </p>
         </div>
 
@@ -57,14 +61,14 @@ const WhySection: React.FC = () => {
                 <div className="flex-1">
                   <div className="flex items-center space-x-3 mb-3">
                     <h3 className="text-2xl font-bold text-gray-900">
-                      {reason.title}
+                      {t(reason.titleKey)}
                     </h3>
                     <span className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                      {reason.stats}
+                      {t(reason.statsKey)}
                     </span>
                   </div>
                   <p className="text-gray-600 leading-relaxed">
-                    {reason.description}
+                    {t(reason.descKey)}
                   </p>
                 </div>
               </div>
@@ -77,19 +81,19 @@ const WhySection: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-3xl font-bold text-yellow-600 mb-2">99.9%</div>
-              <div className="text-gray-600 text-sm">Uptime Guarantee</div>
+              <div className="text-gray-600 text-sm">{t('why.stats.uptime')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-green-600 mb-2">24/7</div>
-              <div className="text-gray-600 text-sm">Customer Support</div>
+              <div className="text-gray-600 text-sm">{t('why.stats.support')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">10M+</div>
-              <div className="text-gray-600 text-sm">Images Generated</div>
+              <div className="text-gray-600 text-sm">{t('why.stats.images')}</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-purple-600 mb-2">150+</div>
-              <div className="text-gray-600 text-sm">Art Styles</div>
+              <div className="text-gray-600 text-sm">{t('why.stats.styles')}</div>
             </div>
           </div>
         </div>

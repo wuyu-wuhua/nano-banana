@@ -1,30 +1,35 @@
+"use client"
+
 import React from 'react';
 import { Zap, Palette, Sparkles, Clock } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const WhatSection: React.FC = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: Zap,
-      title: 'AI-Powered Generation',
-      description: 'Advanced artificial intelligence transforms your text descriptions into stunning, unique artwork in seconds.',
+      titleKey: 'what.feature1.title',
+      descKey: 'what.feature1.desc',
       color: 'yellow'
     },
     {
       icon: Palette,
-      title: 'Multiple Art Styles',
-      description: 'Choose from photorealistic, cartoon, oil painting, watercolor, and dozens of other artistic styles.',
+      titleKey: 'what.feature2.title',
+      descKey: 'what.feature2.desc',
       color: 'green'
     },
     {
       icon: Sparkles,
-      title: 'High-Quality Output',
-      description: 'Generate images in high resolution up to 4K quality, perfect for printing and professional use.',
+      titleKey: 'what.feature3.title',
+      descKey: 'what.feature3.desc',
       color: 'blue'
     },
     {
       icon: Clock,
-      title: 'Lightning Fast',
-      description: 'Get your custom artwork in under 30 seconds. No waiting, no delays - just instant creativity.',
+      titleKey: 'what.feature4.title',
+      descKey: 'what.feature4.desc',
       color: 'purple'
     }
   ];
@@ -34,12 +39,10 @@ const WhatSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            What is Nano Banana?
+            {t('what.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Nano Banana is a cutting-edge AI-powered platform that transforms your written descriptions 
-            into breathtaking visual artwork. Simply describe what you want to see, and Nano Banana&apos;s advanced 
-            artificial intelligence will create a unique, high-quality image tailored to your vision.
+            {t('what.subtitle')}
           </p>
         </div>
 
@@ -61,10 +64,10 @@ const WhatSection: React.FC = () => {
                   </div>
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    {feature.title}
+                    {t(feature.titleKey)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed text-sm">
-                    {feature.description}
+                    {t(feature.descKey)}
                   </p>
                 </div>
               </div>

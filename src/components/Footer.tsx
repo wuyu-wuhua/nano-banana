@@ -1,9 +1,14 @@
+"use client"
+
 import React from 'react';
 import { Twitter, Instagram, MessageCircle } from 'lucide-react';
 import Image from 'next/image';
 import { openFloatingSupport } from './FloatingSupport';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Footer: React.FC = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,8 +29,7 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md leading-relaxed">
-              Transform your imagination into stunning artwork with Nano Banana&apos;s cutting-edge AI technology. 
-              Create, share, and discover amazing images from simple text prompts with Nano Banana.
+              {t('footer.description')}
             </p>
             
             {/* Social Media */}
@@ -56,26 +60,26 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.product')}</h3>
             <ul className="space-y-3">
               <li>
                 <a href="/" className="text-gray-400 hover:text-white transition-colors">
-                  Home
+                  {t('nav.home')}
                 </a>
               </li>
               <li>
                 <a href="/draw" className="text-gray-400 hover:text-white transition-colors">
-                  AI Generator
+                  {t('nav.aiGenerator')}
                 </a>
               </li>
               <li>
                 <a href="/gallery" className="text-gray-400 hover:text-white transition-colors">
-                  Gallery
+                  {t('nav.gallery')}
                 </a>
               </li>
               <li>
                 <a href="/about" className="text-gray-400 hover:text-white transition-colors">
-                  About Us
+                  {t('nav.about')}
                 </a>
               </li>
             </ul>
@@ -83,16 +87,16 @@ const Footer: React.FC = () => {
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.legal')}</h3>
             <ul className="space-y-3">
               <li>
                 <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
+                  {t('footer.privacy')}
                 </a>
               </li>
               <li>
                 <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                  Terms of Service
+                  {t('footer.terms')}
                 </a>
               </li>
               <li>
@@ -100,12 +104,12 @@ const Footer: React.FC = () => {
                   onClick={openFloatingSupport}
                   className="text-gray-400 hover:text-white transition-colors cursor-pointer"
                 >
-                  Contact Us
+                  {t('footer.contact')}
                 </button>
               </li>
               <li>
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Help Center
+                  {t('footer.help')}
                 </a>
               </li>
             </ul>
@@ -115,12 +119,12 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm mb-4 md:mb-0">
-            © 2025 Nano Banana. All rights reserved.
+            {t('footer.copyright')}
           </div>
           <div className="flex items-center space-x-6 text-sm text-gray-400">
-            <span>Made with ❤️ for creators</span>
+            <span>{t('footer.madeWith')}</span>
             <span>•</span>
-            <span>Powered by AI</span>
+            <span>{t('footer.poweredBy')}</span>
           </div>
         </div>
       </div>

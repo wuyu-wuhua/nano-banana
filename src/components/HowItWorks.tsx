@@ -1,24 +1,29 @@
+"use client"
+
 import React from 'react';
 import { PenTool, Palette, Download } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const HowItWorks: React.FC = () => {
+  const { t } = useLanguage();
+  
   const steps = [
     {
       icon: PenTool,
-      title: 'Enter your prompt',
-      description: 'Describe your vision in simple words. Be as creative and detailed as you want.',
+      titleKey: 'how.step1.title',
+      descKey: 'how.step1.desc',
       color: 'yellow'
     },
     {
       icon: Palette,
-      title: 'Choose your style',
-      description: 'Select from various artistic styles like photorealistic, cartoon, oil painting, and more.',
+      titleKey: 'how.step2.title',
+      descKey: 'how.step2.desc',
       color: 'green'
     },
     {
       icon: Download,
-      title: 'Download your art',
-      description: 'Get your stunning AI-generated artwork in high resolution, ready to use anywhere.',
+      titleKey: 'how.step3.title',
+      descKey: 'how.step3.desc',
       color: 'blue'
     }
   ];
@@ -28,11 +33,10 @@ const HowItWorks: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            How It Works
+            {t('how.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Creating amazing artwork with Nano Banana AI is as simple as 1-2-3. 
-            Follow these easy steps to bring your imagination to life with Nano Banana.
+            {t('how.subtitle')}
           </p>
         </div>
 
@@ -61,10 +65,10 @@ const HowItWorks: React.FC = () => {
 
                   {/* Content */}
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {step.title}
+                    {t(step.titleKey)}
                   </h3>
                   <p className="text-gray-600 leading-relaxed">
-                    {step.description}
+                    {t(step.descKey)}
                   </p>
                 </div>
 

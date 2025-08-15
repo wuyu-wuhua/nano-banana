@@ -1,55 +1,59 @@
+"use client"
+
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const TestimonialsSection: React.FC = () => {
+  const { t } = useLanguage();
   const testimonials = [
     {
       id: 1,
-      name: 'Sarah Chen',
-      role: 'Digital Artist',
+      nameKey: 'testimonials.user1.name',
+      roleKey: 'testimonials.user1.role',
+      textKey: 'testimonials.user1.text',
       avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-      rating: 5,
-      text: 'Nano Banana has revolutionized my creative workflow. The quality of AI-generated images is absolutely stunning, and the variety of styles available is incredible. I use it daily for my client projects.'
+      rating: 5
     },
     {
       id: 2,
-      name: 'Marcus Rodriguez',
-      role: 'Marketing Director',
+      nameKey: 'testimonials.user2.name',
+      roleKey: 'testimonials.user2.role',
+      textKey: 'testimonials.user2.text',
       avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-      rating: 5,
-      text: 'As a marketing professional, I need high-quality visuals quickly. Nano Banana delivers exactly that. The speed and quality are unmatched, and it has saved our team countless hours and budget.'
+      rating: 5
     },
     {
       id: 3,
-      name: 'Emily Watson',
-      role: 'Content Creator',
+      nameKey: 'testimonials.user3.name',
+      roleKey: 'testimonials.user3.role',
+      textKey: 'testimonials.user3.text',
       avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-      rating: 5,
-      text: 'I was skeptical about AI art at first, but Nano Banana completely changed my mind. The images are so detailed and creative - sometimes even better than what I had imagined. It\'s like having a personal artist.'
+      rating: 5
     },
     {
       id: 4,
-      name: 'David Kim',
-      role: 'Game Developer',
-      avatar: 'https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-      rating: 5,
-      text: 'For concept art and game assets, Nano Banana is a game-changer. The variety of styles and the ability to iterate quickly has accelerated our development process significantly. Highly recommended!'
+      nameKey: 'testimonials.user4.name',
+      roleKey: 'testimonials.user4.role',
+      textKey: 'testimonials.user4.text',
+      avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      rating: 5
     },
     {
       id: 5,
-      name: 'Lisa Thompson',
-      role: 'Small Business Owner',
+      nameKey: 'testimonials.user5.name',
+      roleKey: 'testimonials.user5.role',
+      textKey: 'testimonials.user5.text',
       avatar: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-      rating: 5,
-      text: 'Running a small business, I needed affordable yet professional visuals for my marketing. Nano Banana provides exactly that. The quality rivals expensive stock photos, but with complete customization.'
+      rating: 5
     },
     {
       id: 6,
-      name: 'Alex Johnson',
-      role: 'Freelance Designer',
+      nameKey: 'testimonials.user6.name',
+      roleKey: 'testimonials.user6.role',
+      textKey: 'testimonials.user6.text',
       avatar: 'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
-      rating: 5,
-      text: 'The creative possibilities with Nano Banana are endless. I can explore ideas and concepts that would take hours to create manually. It\'s become an essential tool in my design arsenal.'
+      rating: 5
     }
   ];
 
@@ -69,11 +73,10 @@ const TestimonialsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            What Our Users Say
+            {t('testimonials.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Join thousands of satisfied creators who have transformed their ideas into stunning artwork with Nano Banana. 
-            Here&apos;s what they have to say about their Nano Banana experience.
+            {t('testimonials.subtitle')}
           </p>
         </div>
 
@@ -92,22 +95,22 @@ const TestimonialsSection: React.FC = () => {
 
               {/* Testimonial Text */}
               <p className="text-gray-700 leading-relaxed mb-6 relative z-10">
-                &ldquo;{testimonial.text}&rdquo;
+                &ldquo;{t(testimonial.textKey)}&rdquo;
               </p>
 
               {/* User Info */}
               <div className="flex items-center space-x-4">
                 <img
                   src={testimonial.avatar}
-                  alt={testimonial.name}
+                  alt={t(testimonial.nameKey)}
                   className="w-12 h-12 rounded-full object-cover border-2 border-gray-100"
                 />
                 <div>
                   <h4 className="font-semibold text-gray-900">
-                    {testimonial.name}
+                    {t(testimonial.nameKey)}
                   </h4>
                   <p className="text-sm text-gray-500">
-                    {testimonial.role}
+                    {t(testimonial.roleKey)}
                   </p>
                 </div>
               </div>
@@ -123,19 +126,19 @@ const TestimonialsSection: React.FC = () => {
               <div className="flex items-center justify-center space-x-1 mb-2">
                 {renderStars(5)}
               </div>
-              <div className="text-gray-600 text-sm">Average Rating</div>
+              <div className="text-gray-600 text-sm">{t('testimonials.stats.averageRating')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-green-600 mb-2">50K+</div>
-              <div className="text-gray-600 text-sm">Happy Users</div>
+              <div className="text-gray-600 text-sm">{t('testimonials.stats.happyUsers')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-blue-600 mb-2">1M+</div>
-              <div className="text-gray-600 text-sm">Images Generated</div>
+              <div className="text-gray-600 text-sm">{t('testimonials.stats.imagesGenerated')}</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-purple-600 mb-2">98%</div>
-              <div className="text-gray-600 text-sm">Satisfaction Rate</div>
+              <div className="text-gray-600 text-sm">{t('testimonials.stats.satisfactionRate')}</div>
             </div>
           </div>
         </div>

@@ -1,9 +1,14 @@
+"use client"
+
 import React from 'react';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import FloatingSupport from '../../components/FloatingSupport';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 export default function TermsPage() {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -13,12 +18,12 @@ export default function TermsPage() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-green-500 text-white rounded-full px-6 py-3 mb-6">
               <span className="text-lg">📋</span>
-              <span className="font-semibold">Legal & Terms</span>
+              <span className="font-semibold">{t('terms.badge')}</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
-              Terms of Service
+              {t('terms.title')}
             </h1>
-            <p className="text-xl text-gray-600">Last updated: January 2025</p>
+            <p className="text-xl text-gray-600">{t('terms.lastUpdated')}</p>
             <div className="w-24 h-1 bg-gradient-to-r from-yellow-500 to-green-500 mx-auto mt-6 rounded-full"></div>
           </div>
 
@@ -29,13 +34,12 @@ export default function TermsPage() {
                   1
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-300">
-                  Acceptance of Terms
+                  {t('terms.section1.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-8 border-l-4 border-red-500">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  By accessing and using Nano Banana&apos;s AI image generation service, you agree to be bound 
-                  by these Terms of Service. If you do not agree to these terms, please do not use our service.
+                  {t('terms.section1.desc')}
                 </p>
               </div>
             </section>
@@ -46,34 +50,33 @@ export default function TermsPage() {
                   2
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-orange-600 transition-colors duration-300">
-                  Service Description
+                  {t('terms.section2.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl p-8 border-l-4 border-orange-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  Nano Banana provides an AI-powered image generation service that allows users to create 
-                  artwork from text descriptions. Our service includes:
+                  {t('terms.section2.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-700">Text-to-image generation using advanced AI models</span>
+                    <span className="text-gray-700">{t('terms.section2.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-700">Multiple artistic styles and customization options</span>
+                    <span className="text-gray-700">{t('terms.section2.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-700">High-quality image output in various formats</span>
+                    <span className="text-gray-700">{t('terms.section2.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-700">User-friendly interface and tools</span>
+                    <span className="text-gray-700">{t('terms.section2.item4')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                    <span className="text-gray-700">Customer support and assistance</span>
+                    <span className="text-gray-700">{t('terms.section2.item5')}</span>
                   </li>
                 </ul>
               </div>
@@ -85,37 +88,37 @@ export default function TermsPage() {
                   3
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-green-600 transition-colors duration-300">
-                  User Responsibilities
+                  {t('terms.section3.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border-l-4 border-green-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  As a user of our service, you agree to:
+                  {t('terms.section3.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Provide accurate and appropriate text prompts</span>
+                    <span className="text-gray-700">{t('terms.section3.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Respect intellectual property rights and copyright laws</span>
+                    <span className="text-gray-700">{t('terms.section3.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Not use the service for illegal or harmful purposes</span>
+                    <span className="text-gray-700">{t('terms.section3.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Not attempt to reverse engineer or hack our systems</span>
+                    <span className="text-gray-700">{t('terms.section3.item4')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Maintain the security of your account credentials</span>
+                    <span className="text-gray-700">{t('terms.section3.item5')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-gray-700">Comply with all applicable laws and regulations</span>
+                    <span className="text-gray-700">{t('terms.section3.item6')}</span>
                   </li>
                 </ul>
               </div>
@@ -127,37 +130,37 @@ export default function TermsPage() {
                   4
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-amber-600 transition-colors duration-300">
-                  Content Guidelines
+                  {t('terms.section4.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-8 border-l-4 border-amber-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  You may not use our service to generate content that:
+                  {t('terms.section4.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                    <span className="text-gray-700">Contains hate speech, violence, or discrimination</span>
+                    <span className="text-gray-700">{t('terms.section4.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                    <span className="text-gray-700">Infringes on intellectual property rights</span>
+                    <span className="text-gray-700">{t('terms.section4.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                    <span className="text-gray-700">Is sexually explicit or inappropriate</span>
+                    <span className="text-gray-700">{t('terms.section4.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                    <span className="text-gray-700">Promotes illegal activities or harmful behavior</span>
+                    <span className="text-gray-700">{t('terms.section4.item4')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                    <span className="text-gray-700">Contains personal information of others without consent</span>
+                    <span className="text-gray-700">{t('terms.section4.item5')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
-                    <span className="text-gray-700">Is intended to deceive or mislead</span>
+                    <span className="text-gray-700">{t('terms.section4.item6')}</span>
                   </li>
                 </ul>
               </div>
@@ -169,29 +172,29 @@ export default function TermsPage() {
                   5
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-cyan-600 transition-colors duration-300">
-                  Intellectual Property
+                  {t('terms.section5.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-2xl p-8 border-l-4 border-cyan-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  Regarding the images you generate using our service:
+                  {t('terms.section5.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                    <span className="text-gray-700">You retain ownership of the generated images</span>
+                    <span className="text-gray-700">{t('terms.section5.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                    <span className="text-gray-700">You may use the images for personal and commercial purposes</span>
+                    <span className="text-gray-700">{t('terms.section5.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                    <span className="text-gray-700">We retain the right to use generated images for service improvement</span>
+                    <span className="text-gray-700">{t('terms.section5.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
-                    <span className="text-gray-700">You are responsible for ensuring you have rights to use any referenced content</span>
+                    <span className="text-gray-700">{t('terms.section5.item4')}</span>
                   </li>
                 </ul>
               </div>
@@ -203,29 +206,29 @@ export default function TermsPage() {
                   6
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-violet-600 transition-colors duration-300">
-                  Service Availability
+                  {t('terms.section6.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-violet-50 to-purple-50 rounded-2xl p-8 border-l-4 border-violet-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  We strive to maintain high service availability but cannot guarantee:
+                  {t('terms.section6.desc')}
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
-                    <span className="text-gray-700">100% uptime or continuous availability</span>
+                    <span className="text-gray-700">{t('terms.section6.item1')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
-                    <span className="text-gray-700">Immediate response times during peak usage</span>
+                    <span className="text-gray-700">{t('terms.section6.item2')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
-                    <span className="text-gray-700">Compatibility with all devices or browsers</span>
+                    <span className="text-gray-700">{t('terms.section6.item3')}</span>
                   </li>
                   <li className="flex items-center space-x-3">
                     <div className="w-2 h-2 bg-violet-500 rounded-full"></div>
-                    <span className="text-gray-700">Unlimited usage without restrictions</span>
+                    <span className="text-gray-700">{t('terms.section6.item4')}</span>
                   </li>
                 </ul>
               </div>
@@ -237,13 +240,12 @@ export default function TermsPage() {
                   7
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-rose-600 transition-colors duration-300">
-                  Limitation of Liability
+                  {t('terms.section7.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-rose-50 to-pink-50 rounded-2xl p-8 border-l-4 border-rose-500">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  Nano Banana shall not be liable for any indirect, incidental, special, consequential, 
-                  or punitive damages arising from your use of our service.
+                  {t('terms.section7.desc')}
                 </p>
               </div>
             </section>
@@ -254,14 +256,12 @@ export default function TermsPage() {
                   8
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-sky-600 transition-colors duration-300">
-                  Changes to Terms
+                  {t('terms.section8.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-sky-50 to-blue-50 rounded-2xl p-8 border-l-4 border-sky-500">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  We reserve the right to modify these terms at any time. We will notify users of 
-                  significant changes via email or through our service. Continued use after changes 
-                  constitutes acceptance of the new terms.
+                  {t('terms.section8.desc')}
                 </p>
               </div>
             </section>
@@ -272,22 +272,22 @@ export default function TermsPage() {
                   9
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">
-                  Contact Information
+                  {t('terms.section9.title')}
                 </h2>
               </div>
               <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-8 border-l-4 border-emerald-500">
                 <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                  If you have questions about these Terms of Service, please contact us:
+                  {t('terms.section9.desc')}
                 </p>
                 <div className="bg-white p-6 rounded-xl shadow-lg border border-emerald-200">
                   <div className="flex items-center space-x-3 mb-3">
                     <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
                       <span className="text-emerald-600 text-lg">📞</span>
                     </div>
-                    <p className="text-emerald-800 font-semibold text-lg">Email: legal@nanobananamodle.com</p>
+                    <p className="text-emerald-800 font-semibold text-lg">{t('terms.section9.email')}</p>
                   </div>
                   <p className="text-emerald-600 text-sm">
-                    We will respond to your inquiry within 24 hours.
+                    {t('terms.section9.response')}
                   </p>
                 </div>
               </div>

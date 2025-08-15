@@ -1,6 +1,6 @@
 // DashScope API 配置
 export const DASHSCOPE_CONFIG = {
-  API_KEY: 'sk-3cb6d446b035484ea0b5ebaf56837bb2', // 直接使用API密钥
+  API_KEY: process.env.DASHSCOPE_API_KEY, // 从环境变量读取
   BASE_URL: 'https://dashscope.aliyuncs.com/api/v1',
   MODELS: {
     TEXT_TO_IMAGE: 'wanx-v1',
@@ -13,8 +13,6 @@ export interface TextToImageParams {
   model: string;
   input: {
     prompt: string;
-    style?: string;
-    size?: string;
   };
   parameters?: {
     style?: string;
@@ -31,8 +29,6 @@ export interface ImageToImageParams {
     prompt: string;
     image: string; // base64 encoded image
     strength?: number;
-    style?: string;
-    size?: string;
   };
   parameters?: {
     style?: string;
@@ -59,17 +55,17 @@ export interface DashScopeResponse {
   };
 }
 
-// 风格映射
+// 风格映射 - 使用DashScope支持的实际风格值
 export const STYLE_MAP = {
-  realistic: '写实风格',
-  anime: '动漫风格',
-  oil_painting: '油画风格',
-  watercolor: '水彩风格',
-  sketch: '素描风格',
-  illustration: '插画风格'
+  realistic: 'realistic',
+  anime: 'anime',
+  oil_painting: 'oil_painting',
+  watercolor: 'watercolor',
+  sketch: 'sketch',
+  illustration: 'illustration'
 };
 
-// 尺寸映射
+// 尺寸映射 - 使用DashScope支持的实际尺寸值
 export const SIZE_MAP = {
   '1:1': '1024*1024',
   '3:4': '768*1152',

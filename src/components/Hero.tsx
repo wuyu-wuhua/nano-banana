@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { Sparkles } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
 
   return (
     <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-yellow-50 via-green-50 to-blue-50 min-h-screen flex items-center relative overflow-hidden">
@@ -26,20 +28,12 @@ const Hero: React.FC = () => {
 
             {/* Main Headline */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Transform your{' '}
-              <span className="bg-gradient-to-r from-yellow-500 to-green-500 bg-clip-text text-transparent">
-                words
-              </span>{' '}
-              into{' '}
-              <span className="bg-gradient-to-r from-green-500 to-blue-500 bg-clip-text text-transparent">
-                stunning images
-              </span>
+              {t('hero.title')}
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Experience the power of Nano Banana AI to create art from text in seconds. 
-              Turn your imagination into beautiful, unique artwork with Nano Banana&apos;s advanced technology.
+              {t('hero.subtitle')}
             </p>
 
             {/* CTA Buttons */}
@@ -48,10 +42,10 @@ const Hero: React.FC = () => {
                 href="/draw"
                 className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200 text-center"
               >
-                Start Creating Now
+                {t('hero.cta')}
               </a>
-              <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-lg hover:border-yellow-500 hover:text-yellow-600 transform hover:scale-105 transition-all duration-200">
-                View Gallery
+              <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold text-lg hover:border-yellow-500 hover:text-yellow-600 transform hover:scale-105 transform hover:scale-105 transition-all duration-200">
+                {t('hero.learnMore')}
               </button>
             </div>
           </div>
@@ -67,8 +61,8 @@ const Hero: React.FC = () => {
                   className="w-full h-80 object-cover rounded-2xl shadow-lg"
                 />
                 <div className="mt-4 text-center">
-                  <p className="text-sm text-gray-500 mb-1">Generated from prompt:</p>
-                  <p className="text-gray-700 italic">&ldquo;Scene of several ducks swimming in the water&rdquo;</p>
+                  <p className="text-sm text-gray-500 mb-1">{t('draw.prompt')}</p>
+                  <p className="text-gray-700 italic">&ldquo;{t('hero.examplePrompt')}&rdquo;</p>
                 </div>
               </div>
               

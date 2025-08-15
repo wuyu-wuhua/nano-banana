@@ -1,84 +1,145 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { DASHSCOPE_CONFIG, TextToImageParams, DashScopeResponse } from '../../../lib/dashscope';
+
+const DASHSCOPE_API_KEY = process.env.DASHSCOPE_API_KEY;
+const BASE_URL = 'https://dashscope.aliyuncs.com/api/v1/services/aigc/text2image/image-synthesis';
+const TASK_URL = 'https://dashscope.aliyuncs.com/api/v1/tasks';
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { prompt, style, size } = body;
+    const { prompt, style = '<auto>', size = '1024*1024', mode = 'text2img' } = body;
 
-    if (!prompt) {
-      return NextResponse.json(
-        { error: '提示词不能为空' },
-        { status: 400 }
-      );
+    console.log('绘画请求参数:', { prompt, style, size, mode });
+
+    if (!prompt || !prompt.trim()) {
+      return NextResponse.json({ error: '请输入描述文字' }, { status: 400 });
     }
 
-    // 构建DashScope API请求参数
-    const apiParams: TextToImageParams = {
-      model: DASHSCOPE_CONFIG.MODELS.TEXT_TO_IMAGE,
-      input: {
-        prompt: prompt.trim(),
-        style: style || 'realistic',
-        size: size || '1024*1024'
-      },
-      parameters: {
-        style: style || 'realistic',
-        size: size || '1024*1024',
-        n: 1
-      }
-    };
+    // 阿里云通义万相wanx-v1支持的尺寸
+    const validSizes = ['1024*1024', '720*1280', '768*1152', '1280*720'];
+    if (!validSizes.includes(size)) {
+      console.error('不支持的尺寸:', size, '支持的尺寸:', validSizes);
+      return NextResponse.json({ 
+        error: `不支持的尺寸: ${size}`,
+        supportedSizes: validSizes
+      }, { status: 400 });
+    }
 
-    // 调用DashScope API
-    const response = await fetch(`${DASHSCOPE_CONFIG.BASE_URL}/services/aigc/text2image/generation`, {
+    // 验证风格参数
+    const validStyles = ['<auto>', '<photography>', '<anime>', '<oil painting>', '<watercolor>', '<sketch>'];
+    if (!validStyles.includes(style)) {
+      console.error('不支持的风格:', style, '支持的风格:', validStyles);
+      return NextResponse.json({ 
+        error: `不支持的风格: ${style}`,
+        supportedStyles: validStyles
+      }, { status: 400 });
+    }
+
+    console.log('开始生成图片，使用参数:', { 
+      prompt: prompt.trim(), 
+      style, 
+      size,
+      promptLength: prompt.trim().length,
+      isValidStyle: validStyles.includes(style),
+      isValidSize: validSizes.includes(size)
+    });
+
+    // 发起异步任务
+    const response = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${DASHSCOPE_CONFIG.API_KEY}`,
+        'X-DashScope-Async': 'enable',
+        'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
         'Content-Type': 'application/json',
-        'X-DashScope-Async': 'enable' // 启用异步模式
       },
-      body: JSON.stringify(apiParams)
+      body: JSON.stringify({
+        model: 'wanx-v1',
+        input: {
+          prompt: prompt.trim(),
+        },
+        parameters: {
+          style: style,
+          size: size,
+          n: 1
+        }
+      }),
     });
 
     if (!response.ok) {
-      const errorData = await response.text();
-      console.error('DashScope API 错误:', errorData);
-      return NextResponse.json(
-        { error: `DashScope API 调用失败: ${response.status}` },
-        { status: response.status }
-      );
+      const errorData = await response.json();
+      console.error('API请求失败:', errorData);
+      console.error('请求参数:', { prompt: prompt.trim(), style, size });
+      throw new Error(errorData.message || `请求失败: ${response.status}`);
     }
 
-    const data: DashScopeResponse = await response.json();
+    const data = await response.json();
+    console.log('任务创建响应:', data);
+    const taskId = data.output?.task_id;
 
-    if (data.status_code !== 200) {
-      return NextResponse.json(
-        { error: `生成失败: ${data.status_code}` },
-        { status: 500 }
-      );
+    if (!taskId) {
+      throw new Error('无法获取任务ID');
     }
 
-    // 检查是否有生成的图片
-    if (!data.output?.images || data.output.images.length === 0) {
-      return NextResponse.json(
-        { error: '没有生成图片' },
-        { status: 500 }
-      );
+    // 轮询检查任务状态
+    let attempts = 0;
+    const maxAttempts = 60; // 最多等待5分钟（每次5秒）
+
+    while (attempts < maxAttempts) {
+      await new Promise(resolve => setTimeout(resolve, 5000)); // 等待5秒
+      attempts++;
+
+      const statusResponse = await fetch(`${TASK_URL}/${taskId}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${DASHSCOPE_API_KEY}`,
+        },
+      });
+
+      if (!statusResponse.ok) {
+        continue; // 继续轮询
+      }
+
+      const statusData = await statusResponse.json();
+      const taskStatus = statusData.output?.task_status;
+
+      if (taskStatus === 'SUCCEEDED') {
+        const results = statusData.output?.results;
+        if (results && results.length > 0) {
+          const imageUrl = results[0].url;
+          console.log('生成成功，图片URL:', imageUrl);
+          console.log('URL域名检查:', imageUrl.includes('dashscope-result-bj.oss-cn-beijing.aliyuncs.com'));
+          
+          // 测试URL是否可访问
+          try {
+            const testResponse = await fetch(imageUrl, { method: 'HEAD' });
+            console.log('图片URL可访问性测试:', testResponse.status, testResponse.statusText);
+          } catch (testError) {
+            console.error('图片URL访问测试失败:', testError);
+          }
+          
+          return NextResponse.json({
+            success: true,
+            imageUrl: imageUrl,
+            taskId: taskId,
+            usage: statusData.usage,
+          });
+        } else {
+          throw new Error('生成结果为空');
+        }
+      } else if (taskStatus === 'FAILED') {
+        throw new Error('图片生成失败');
+      }
+      // 如果是PENDING或RUNNING，继续轮询
     }
 
-    const imageUrl = data.output.images[0].url;
-
-    return NextResponse.json({
-      success: true,
-      imageUrl,
-      requestId: data.request_id,
-      usage: data.usage
-    });
+    // 超时
+    throw new Error('生成超时，请稍后重试');
 
   } catch (error) {
-    console.error('文生图API错误:', error);
-    return NextResponse.json(
-      { error: '服务器内部错误' },
-      { status: 500 }
-    );
+    console.error('AI绘图错误:', error);
+    return NextResponse.json({ 
+      error: '服务器错误',
+      details: error instanceof Error ? error.message : '未知错误'
+    }, { status: 500 });
   }
 }

@@ -1,14 +1,20 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import Image from 'next/image';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'zh' : 'en');
   };
 
   return (
@@ -33,23 +39,37 @@ const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 flex-1">
             <a href="/" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium">
-              Home
+              {t('nav.home')}
             </a>
             <a href="/draw" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium">
-              AI Generator
+              {t('nav.aiGenerator')}
             </a>
             <a href="/gallery" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium">
-              Gallery
+              {t('nav.gallery')}
             </a>
             <a href="/about" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium">
-              About Us
+              {t('nav.about')}
             </a>
           </nav>
+
+          {/* Language Toggle Button */}
+          <div className="hidden md:block mr-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg border border-gray-300 hover:border-yellow-500 hover:bg-yellow-50 transition-all duration-200"
+              title={language === 'en' ? '切换到中文' : 'Switch to English'}
+            >
+              <Globe className="w-4 h-4 text-gray-600" />
+              <span className="text-sm font-medium text-gray-700">
+                {language === 'en' ? '中文' : 'EN'}
+              </span>
+            </button>
+          </div>
 
           {/* Get Started Button */}
           <div className="hidden md:block">
             <a href="/draw" className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-              Get Started
+              {t('nav.getStarted')}
             </a>
           </div>
 
@@ -69,19 +89,31 @@ const Header: React.FC = () => {
           <div className="md:hidden py-4 border-t border-gray-200 mt-2">
             <nav className="flex flex-col space-y-4">
               <a href="/" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium px-2">
-                Home
+                {t('nav.home')}
               </a>
               <a href="/draw" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium px-2">
-                AI Generator
+                {t('nav.aiGenerator')}
               </a>
               <a href="/gallery" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium px-2">
-                Gallery
+                {t('nav.gallery')}
               </a>
               <a href="/about" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium px-2">
-                About Us
+                {t('nav.about')}
               </a>
+              
+              {/* Mobile Language Toggle */}
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center justify-center space-x-2 px-4 py-2 mx-2 rounded-lg border border-gray-300 hover:border-yellow-500 hover:bg-yellow-50 transition-all duration-200"
+              >
+                <Globe className="w-4 h-4 text-gray-600" />
+                <span className="text-sm font-medium text-gray-700">
+                  {language === 'en' ? '中文' : 'EN'}
+                </span>
+              </button>
+              
               <a href="/draw" className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 mx-2 mt-2">
-                Get Started
+                {t('nav.getStarted')}
               </a>
             </nav>
           </div>
