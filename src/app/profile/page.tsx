@@ -4,6 +4,7 @@ import { useAuth } from '~/contexts/auth-context'
 import { useLanguage } from '~/contexts/LanguageContext'
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
+import { DotPattern } from '~/components/ui/dot-pattern'
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 import { Badge } from '~/components/ui/badge'
 import { Button } from '~/components/ui/button'
@@ -41,13 +42,12 @@ export default function ProfilePage() {
       <Header />
       
       <div className="relative flex-1 bg-white">
-        {/* 点状背景 - 使用更明显的样式 */}
-        <div 
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(0,0,0,0.15) 2px, transparent 0)',
-            backgroundSize: '24px 24px'
-          }}
+        <DotPattern
+          width={20}
+          height={20}
+          cr={1}
+          glow={true}
+          className="[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] text-gray-300/60"
         />
         
         <div className="container mx-auto px-4 py-8 pt-24 relative z-10">
@@ -183,6 +183,21 @@ export default function ProfilePage() {
               </Button>
             </div>
           </div>
+        </div>
+      </div>
+      
+      {/* 悬浮球 */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <div className="flex flex-col gap-3">
+          <button className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-green-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-white hover:scale-110">
+            <Zap className="w-5 h-5" />
+          </button>
+          <button className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-700 hover:scale-110 border border-gray-200">
+            <Star className="w-5 h-5" />
+          </button>
+          <button className="w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-700 hover:scale-110 border border-gray-200">
+            <Crown className="w-5 h-5" />
+          </button>
         </div>
       </div>
       
