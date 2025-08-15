@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 import Image from 'next/image';
 import { useLanguage } from '../contexts/LanguageContext';
+import { UserDropdownMenu } from './ui/user-dropdown-menu';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,6 +67,11 @@ const Header: React.FC = () => {
             </button>
           </div>
 
+          {/* User Menu / Auth Buttons */}
+          <div className="hidden md:block mr-4">
+            <UserDropdownMenu />
+          </div>
+
           {/* Get Started Button */}
           <div className="hidden md:block">
             <a href="/draw" className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
@@ -111,6 +117,11 @@ const Header: React.FC = () => {
                   {language === 'en' ? '中文' : 'EN'}
                 </span>
               </button>
+              
+              {/* Mobile User Menu */}
+              <div className="px-2">
+                <UserDropdownMenu />
+              </div>
               
               <a href="/draw" className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 mx-2 mt-2">
                 {t('nav.getStarted')}

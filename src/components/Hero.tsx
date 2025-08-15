@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight bg-gradient-to-r from-yellow-600 to-green-600 bg-clip-text text-transparent">
               {t('hero.title')}
             </h1>
 
