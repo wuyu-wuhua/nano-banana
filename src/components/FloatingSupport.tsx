@@ -117,7 +117,7 @@ const FloatingSupport: React.FC = () => {
         document.removeEventListener('mouseup', handleMouseUp);
       };
     }
-  }, [isDragging, dragOffset]);
+  }, [isDragging, handleMouseMove, handleMouseUp]);
 
   return (
     <div 

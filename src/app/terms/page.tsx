@@ -34,7 +34,7 @@ export default function TermsPage() {
               </div>
               <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-8 border-l-4 border-red-500">
                 <p className="text-gray-700 text-lg leading-relaxed">
-                  By accessing and using Nano Banana's AI image generation service, you agree to be bound 
+                  By accessing and using Nano Banana&apos;s AI image generation service, you agree to be bound 
                   by these Terms of Service. If you do not agree to these terms, please do not use our service.
                 </p>
               </div>

@@ -131,7 +131,7 @@ export default function AboutPage() {
               </div>
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Creativity</h4>
               <p className="text-gray-600 text-sm">
-                We celebrate and nurture creativity, believing it's the foundation of human progress.
+                We celebrate and nurture creativity, believing it&apos;s the foundation of human progress.
               </p>
             </div>
             
