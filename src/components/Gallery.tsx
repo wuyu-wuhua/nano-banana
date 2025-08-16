@@ -73,62 +73,60 @@ const Gallery: React.FC = () => {
     }
   ];
 
-
-
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-br from-gray-50 to-white">
+    <section id="gallery" className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2 sm:px-0">
             {t('gallery.title')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
             {t('gallery.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {sampleImages.map((image) => (
-            <div key={image.id} className="group relative bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
+            <div key={image.id} className="group relative bg-white rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
               <div className="relative overflow-hidden">
                 <img 
                   src={image.url} 
                   alt={t(image.titleKey)}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Overlay Actions */}
-                <div className="absolute top-4 right-4 space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <button className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors">
-                    <Heart className="w-5 h-5 text-red-500" />
+                <div className="absolute top-3 sm:top-4 right-3 sm:right-4 space-y-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors">
+                    <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-red-500" />
                   </button>
-                  <button className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors">
-                    <ExternalLink className="w-5 h-5 text-gray-700" />
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white transition-colors">
+                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                   </button>
                 </div>
               </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
                   {t(image.titleKey)}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 leading-relaxed">
                   {t(image.descKey)}
                 </p>
                 <div className="bg-gray-50 rounded-lg p-3 border border-gray-100">
-                  <p className="text-sm text-gray-500 mb-1">{t('gallery.prompt')}</p>
-                  <p className="text-sm text-gray-700 italic">&ldquo;{t(image.promptKey)}&rdquo;</p>
+                  <p className="text-xs sm:text-sm text-gray-500 mb-1">{t('gallery.prompt')}</p>
+                  <p className="text-xs sm:text-sm text-gray-700 italic">&ldquo;{t(image.promptKey)}&rdquo;</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-12">
           <a 
             href="/gallery"
-            className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 inline-block"
+            className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 inline-block text-sm sm:text-base"
           >
             {t('gallery.loadMore')}
           </a>

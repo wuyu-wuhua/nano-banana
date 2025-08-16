@@ -61,7 +61,7 @@ const TestimonialsSection: React.FC = () => {
     return Array.from({ length: 5 }, (_, index) => (
       <Star
         key={index}
-        className={`w-4 h-4 ${
+        className={`w-3 h-3 sm:w-4 sm:h-4 ${
           index < rating ? 'text-yellow-500 fill-current' : 'text-gray-300'
         }`}
       />
@@ -69,47 +69,47 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-yellow-50 via-green-50 to-blue-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-yellow-50 via-green-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2 sm:px-0">
             {t('testimonials.title')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0">
             {t('testimonials.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {testimonials.map((testimonial) => (
-            <div key={testimonial.id} className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group relative">
+            <div key={testimonial.id} className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group relative">
               {/* Quote Icon */}
-              <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                <Quote className="w-8 h-8 text-gray-400" />
+              <div className="absolute top-4 sm:top-6 right-4 sm:right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400" />
               </div>
 
               {/* Rating */}
-              <div className="flex items-center space-x-1 mb-4">
+              <div className="flex items-center space-x-1 mb-3 sm:mb-4">
                 {renderStars(testimonial.rating)}
               </div>
 
               {/* Testimonial Text */}
-              <p className="text-gray-700 leading-relaxed mb-6 relative z-10">
+              <p className="text-sm sm:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6 relative z-10">
                 &ldquo;{t(testimonial.textKey)}&rdquo;
               </p>
 
               {/* User Info */}
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-3 sm:space-x-4">
                 <img
                   src={testimonial.avatar}
                   alt={t(testimonial.nameKey)}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-gray-100"
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-gray-100"
                 />
                 <div>
-                  <h4 className="font-semibold text-gray-900">
+                  <h4 className="font-semibold text-gray-900 text-sm sm:text-base">
                     {t(testimonial.nameKey)}
                   </h4>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500">
                     {t(testimonial.roleKey)}
                   </p>
                 </div>
@@ -119,26 +119,26 @@ const TestimonialsSection: React.FC = () => {
         </div>
 
         {/* Overall Stats */}
-        <div className="mt-16 bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+        <div className="mt-12 sm:mt-16 bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold text-yellow-600 mb-2">4.9</div>
-              <div className="flex items-center justify-center space-x-1 mb-2">
+              <div className="text-2xl sm:text-4xl font-bold text-yellow-600 mb-1 sm:mb-2">4.9</div>
+              <div className="flex items-center justify-center space-x-1 mb-1 sm:mb-2">
                 {renderStars(5)}
               </div>
-              <div className="text-gray-600 text-sm">{t('testimonials.stats.averageRating')}</div>
+              <div className="text-gray-600 text-xs sm:text-sm">{t('testimonials.stats.averageRating')}</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">50K+</div>
-              <div className="text-gray-600 text-sm">{t('testimonials.stats.happyUsers')}</div>
+              <div className="text-2xl sm:text-4xl font-bold text-green-600 mb-1 sm:mb-2">50K+</div>
+              <div className="text-gray-600 text-xs sm:text-sm">{t('testimonials.stats.happyUsers')}</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">1M+</div>
-              <div className="text-gray-600 text-sm">{t('testimonials.stats.imagesGenerated')}</div>
+              <div className="text-2xl sm:text-4xl font-bold text-blue-600 mb-1 sm:mb-2">1M+</div>
+              <div className="text-gray-600 text-xs sm:text-sm">{t('testimonials.stats.imagesGenerated')}</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-purple-600 mb-2">98%</div>
-              <div className="text-gray-600 text-sm">{t('testimonials.stats.satisfactionRate')}</div>
+              <div className="text-2xl sm:text-4xl font-bold text-purple-600 mb-1 sm:mb-2">98%</div>
+              <div className="text-gray-600 text-xs sm:text-sm">{t('testimonials.stats.satisfactionRate')}</div>
             </div>
           </div>
         </div>

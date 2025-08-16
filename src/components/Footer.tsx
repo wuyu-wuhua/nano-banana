@@ -100,6 +100,11 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
+                <a href="/cookie-settings" className="text-gray-400 hover:text-white transition-colors">
+                  {t('footer.cookieSettings')}
+                </a>
+              </li>
+              <li>
                 <button 
                   onClick={openFloatingSupport}
                   className="text-gray-400 hover:text-white transition-colors cursor-pointer"

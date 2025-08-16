@@ -121,6 +121,55 @@ const FloatingSupport: React.FC = () => {
     }
   }, [isDragging, handleMouseMove, handleMouseUp]);
 
+  // 触摸开始事件
+  const handleTouchStart = (e: React.TouchEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+    const rect = buttonRef.current?.getBoundingClientRect();
+    if (rect) {
+      setDragOffset({
+        x: e.touches[0].clientX - rect.left,
+        y: e.touches[0].clientY - rect.top
+      });
+    }
+  };
+
+  // 触摸移动事件
+  const handleTouchMove = (e: TouchEvent) => {
+    if (isDragging) {
+      e.preventDefault();
+      const newX = e.touches[0].clientX - dragOffset.x;
+      const newY = e.touches[0].clientY - dragOffset.y;
+      
+      // 限制在视窗范围内
+      const maxX = window.innerWidth - 48; // 48px = 按钮宽度
+      const maxY = window.innerHeight - 48;
+      
+      setPosition({
+        x: Math.max(0, Math.min(newX, maxX)),
+        y: Math.max(0, Math.min(newY, maxY))
+      });
+    }
+  };
+
+  // 触摸结束事件
+  const handleTouchEnd = () => {
+    setIsDragging(false);
+  };
+
+  // 添加全局触摸事件监听
+  useEffect(() => {
+    if (isDragging) {
+      document.addEventListener('touchmove', handleTouchMove, { passive: false });
+      document.addEventListener('touchend', handleTouchEnd);
+      
+      return () => {
+        document.removeEventListener('touchmove', handleTouchMove);
+        document.removeEventListener('touchend', handleTouchEnd);
+      };
+    }
+  }, [isDragging, handleTouchMove, handleTouchEnd]);
+
   return (
     <div 
       className="fixed z-50"
@@ -131,6 +180,7 @@ const FloatingSupport: React.FC = () => {
       }}
       ref={buttonRef}
       onMouseDown={handleMouseDown}
+      onTouchStart={handleTouchStart}
     >
       {/* Floating Button */}
       <button

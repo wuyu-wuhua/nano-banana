@@ -54,18 +54,22 @@ const translations = {
       reason1: {
         title: 'Privacy & Security',
         desc: 'Your prompts and generated images are completely private. We never store or share your creative content without permission',
+        stats: '99.9% Secure'
       },
       reason2: {
         title: 'Trusted by Creators',
         desc: 'Join over 500,000 artists, designers, and creators who rely on Nano Banana for their creative projects',
+        stats: '500K+ Users'
       },
       reason3: {
         title: 'Industry Leading',
         desc: 'Our AI models are trained on the latest technology, delivering superior quality compared to other platforms',
+        stats: 'Top Quality'
       },
       reason4: {
         title: 'Constantly Improving',
         desc: 'We regularly update our AI models and add new features based on user feedback and technological advances',
+        stats: 'Always Updated'
       },
       stats: {
         uptime: 'Uptime Guarantee',
@@ -181,6 +185,7 @@ const translations = {
       cookies: 'Cookie Policy',
       gdpr: 'GDPR',
       description: 'Transform your imagination into stunning artwork with Nano Banana\'s cutting-edge AI technology. Create, share, and discover amazing images from simple text prompts with Nano Banana.',
+      cookieSettings: 'Cookie Settings'
     },
     cta: {
       title: 'Ready to Create Your Masterpiece?',
@@ -510,18 +515,22 @@ const translations = {
       reason1: {
         title: '隐私与安全',
         desc: '你的提示词和生成的图像完全私密。我们绝不会在未经许可的情况下存储或分享你的创意内容',
+        stats: '99.9% 安全'
       },
       reason2: {
         title: '创作者信赖',
         desc: '加入超过50万名艺术家、设计师和创作者，他们都依赖Nano Banana进行创意项目',
+        stats: '50万+ 用户'
       },
       reason3: {
         title: '行业领先',
         desc: '我们的AI模型采用最新技术训练，相比其他平台提供卓越质量',
+        stats: '行业领先'
       },
       reason4: {
         title: '持续改进',
         desc: '我们根据用户反馈和技术进步定期更新AI模型并添加新功能',
+        stats: '持续更新'
       },
       stats: {
         uptime: '运行时间保证',
@@ -637,6 +646,7 @@ const translations = {
       cookies: 'Cookie政策',
       gdpr: 'GDPR',
       description: '使用Nano Banana的尖端AI技术，将你的想象力转化为惊艳的艺术作品。通过简单的文字提示，创作、分享和发现令人惊叹的图像。',
+      cookieSettings: 'Cookie设置'
     },
     cta: {
       title: '准备好创作你的杰作了吗？',
