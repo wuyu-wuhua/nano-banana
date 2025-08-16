@@ -33,6 +33,8 @@ const DrawPage: React.FC<DrawPageProps> = () => {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
   const [showLoginModal, setShowLoginModal] = useState(false);
+  const [showInsufficientCreditsModal, setShowInsufficientCreditsModal] = useState(false);
+  const [insufficientCreditsError, setInsufficientCreditsError] = useState<string>('');
 
   // 文生图尺寸映射 - 修正为后端API期望的格式
   const text2imgSizeMap = {
@@ -68,6 +70,39 @@ const DrawPage: React.FC<DrawPageProps> = () => {
     try {
       setGeneratingProgress(10);
       
+      // 先检查并消耗用户积分
+      const consumeResponse = await fetch('/api/credits/consume', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: 10,
+          description: 'AI图片生成',
+          metadata: {
+            prompt: prompt.trim(),
+            style: style,
+            size: size
+          }
+        }),
+      });
+      
+      if (!consumeResponse.ok) {
+        const consumeError = await consumeResponse.json();
+        if (consumeError.error === 'insufficient_credits') {
+          setInsufficientCreditsError(consumeError.message || t('draw.insufficientCredits'));
+          setShowInsufficientCreditsModal(true);
+          setIsGenerating(false);
+          return;
+        }
+        throw new Error(consumeError.error || t('draw.creditConsumeError'));
+      }
+      
+      const consumeData = await consumeResponse.json();
+      console.log('积分消耗成功:', consumeData);
+      
+      setGeneratingProgress(20);
+      
       // 调用文生图API - 使用DashScope，传递正确的尺寸格式
       const response = await fetch('/api/draw', {
         method: 'POST',
@@ -85,7 +120,7 @@ const DrawPage: React.FC<DrawPageProps> = () => {
         }),
       });
       
-      setGeneratingProgress(30);
+      setGeneratingProgress(50);
       
       if (!response.ok) {
         const errorData = await response.json();
@@ -150,10 +185,10 @@ const DrawPage: React.FC<DrawPageProps> = () => {
           <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
             <AlertCircle className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
             <h3 className="text-xl font-bold text-gray-900 mb-2">
-              请先登录
+              {t('draw.loginRequired')}
             </h3>
             <p className="text-gray-600 mb-6">
-              登录后才能使用AI图片生成功能
+              {t('draw.loginRequiredDesc')}
             </p>
             <div className="flex gap-3 justify-center">
               <Button
@@ -161,11 +196,44 @@ const DrawPage: React.FC<DrawPageProps> = () => {
                 variant="outline"
                 size="lg"
               >
-                取消
+                {t('draw.cancel')}
               </Button>
               <Link href="/auth/sign-in">
                 <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-green-500 hover:from-yellow-600 hover:to-green-600 text-white">
-                  去登录
+                  {t('draw.goToLogin')}
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 积分不足提示弹框 */}
+      {showInsufficientCreditsModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              {t('draw.insufficientCredits')}
+            </h3>
+            <p className="text-gray-600 mb-6">
+              {insufficientCreditsError}
+            </p>
+            <div className="flex gap-3 justify-center">
+              <Button
+                onClick={() => setShowInsufficientCreditsModal(false)}
+                variant="outline"
+                size="lg"
+              >
+                {t('draw.cancel')}
+              </Button>
+              <Link href="/pricing">
+                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-green-500 hover:from-yellow-600 hover:to-green-600 text-white">
+                  {t('profile.purchaseCredits')}
                 </Button>
               </Link>
             </div>
@@ -298,6 +366,7 @@ const DrawPage: React.FC<DrawPageProps> = () => {
                       <>
                         <Wand2 className="w-6 h-6" />
                         <span>{t('draw.generateButton')}</span>
+                        <span className="text-sm opacity-80">({t('draw.costCredits').replace('{credits}', '10')})</span>
                       </>
                     )}
                   </div>

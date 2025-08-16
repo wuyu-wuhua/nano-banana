@@ -65,8 +65,8 @@ export function DotPattern({
             cx={dot.x}
             cy={dot.y}
             r={cr}
-            fill="#d1d5db"
-            opacity="0.6"
+            fill="currentColor"
+            className="text-gray-300"
           />
         ))}
       </svg>

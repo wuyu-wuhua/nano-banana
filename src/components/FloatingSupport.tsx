@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X, Mail } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // 全局状态管理悬浮球显示
 let globalSetIsOpen: ((isOpen: boolean) => void) | null = null;
@@ -13,6 +14,7 @@ export const openFloatingSupport = () => {
 };
 
 const FloatingSupport: React.FC = () => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 }); // 将在 useEffect 中设置
   const [isDragging, setIsDragging] = useState(false);
@@ -146,11 +148,11 @@ const FloatingSupport: React.FC = () => {
         <div className="absolute -top-24 right-[calc(100%+1rem)] w-80 bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden z-50">
           {/* Header */}
           <div className="bg-gradient-to-r from-yellow-500 to-green-500 text-white px-6 py-4 relative">
-            <h3 className="text-lg font-semibold">Need Help?</h3>
+            <h3 className="text-lg font-semibold">{t('floating_support.title')}</h3>
             <button
               onClick={closePopover}
               className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors"
-              aria-label="Close"
+              aria-label={t('floating_support.close')}
             >
               <X className="w-4 h-4" />
             </button>
@@ -159,7 +161,7 @@ const FloatingSupport: React.FC = () => {
           {/* Body */}
           <div className="p-6">
             <p className="text-gray-600 mb-6 leading-relaxed">
-              If you encounter any problems during use, please contact us via email and we will help you solve them as soon as possible!
+              {t('floating_support.message')}
             </p>
 
             {/* Email Section */}
@@ -169,7 +171,7 @@ const FloatingSupport: React.FC = () => {
                   <Mail className="w-5 h-5 text-gray-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-gray-700">Customer Service Email</p>
+                  <p className="text-sm font-medium text-gray-700">{t('floating_support.customer_service_email')}</p>
                 </div>
               </div>
 
@@ -181,8 +183,8 @@ const FloatingSupport: React.FC = () => {
                 media@nanobananamodle.com
               </button>
 
-              <p className="text-xs text-gray-500 text-center">Click to send email</p>
-              <p className="text-xs text-gray-500 text-center">We usually respond within 24 hours</p>
+              <p className="text-xs text-gray-500 text-center">{t('floating_support.click_to_send')}</p>
+              <p className="text-xs text-gray-500 text-center">{t('floating_support.response_time')}</p>
             </div>
           </div>
         </div>

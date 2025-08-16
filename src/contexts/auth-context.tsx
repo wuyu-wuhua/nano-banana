@@ -25,6 +25,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       setSession(session)
       setUser(session?.user ?? null)
       setLoading(false)
+      
+      // 如果是新用户，赠送积分
+      if (session?.user) {
+        await giftWelcomeCredits(session.user.id);
+      }
     }
 
     getInitialSession()
@@ -35,11 +40,37 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         setSession(session)
         setUser(session?.user ?? null)
         setLoading(false)
+        
+        // 如果是新登录的用户，赠送积分
+        if (event === 'SIGNED_IN' && session?.user) {
+          await giftWelcomeCredits(session.user.id);
+        }
       }
     )
 
     return () => subscription.unsubscribe()
   }, [])
+
+  // 赠送欢迎积分的函数
+  const giftWelcomeCredits = async (userId: string) => {
+    try {
+      const response = await fetch('/api/auth/welcome', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        if (data.gifted) {
+          console.log('Welcome credits gifted successfully!');
+        }
+      }
+    } catch (error) {
+      console.error('Error gifting welcome credits:', error);
+    }
+  };
 
   const signOut = async () => {
     await supabase.auth.signOut()
