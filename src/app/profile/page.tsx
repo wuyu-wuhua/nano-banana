@@ -28,9 +28,9 @@ export default function ProfilePage() {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">请先登录</h1>
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">{t('profile.pleaseLogin')}</h1>
           <Link href="/auth/sign-in">
-            <Button>去登录</Button>
+            <Button>{t('profile.goToLogin')}</Button>
           </Link>
         </div>
       </div>
@@ -54,9 +54,9 @@ export default function ProfilePage() {
           {/* 页面标题 */}
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-yellow-500 to-green-500 bg-clip-text text-transparent mb-2">
-              个人资料
+              {t('profile.title')}
             </h1>
-            <p className="text-gray-600">管理您的账户信息和设置</p>
+            <p className="text-gray-600">{t('profile.subtitle')}</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
@@ -83,7 +83,7 @@ export default function ProfilePage() {
                 <div className="flex items-center justify-center gap-2 mt-2">
                   <Badge variant="secondary" className="bg-yellow-100 text-yellow-800">
                     <Shield className="w-3 h-3 mr-1" />
-                    已验证用户
+                    {t('profile.verifiedUser')}
                   </Badge>
                 </div>
               </CardHeader>
@@ -93,14 +93,14 @@ export default function ProfilePage() {
                     <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                       <User className="w-5 h-5 text-gray-600" />
                       <div>
-                        <p className="text-sm text-gray-500">用户名</p>
+                        <p className="text-sm text-gray-500">{t('profile.username')}</p>
                         <p className="font-medium text-gray-900">{user.email?.split('@')[0] || 'user'}</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                       <Crown className="w-5 h-5 text-gray-600" />
                       <div>
-                        <p className="text-sm text-gray-500">用户邮箱</p>
+                        <p className="text-sm text-gray-500">{t('profile.userEmail')}</p>
                         <p className="font-medium text-gray-900 text-sm">
                           {user.email || 'user@example.com'}
                         </p>
@@ -111,14 +111,14 @@ export default function ProfilePage() {
                     <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                       <Star className="w-5 h-5 text-yellow-500" />
                       <div>
-                        <p className="text-sm text-gray-500">用户积分</p>
+                        <p className="text-sm text-gray-500">{t('profile.userPoints')}</p>
                         <p className="font-medium text-gray-900">1,250 分</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                       <Gift className="w-5 h-5 text-green-500" />
                       <div>
-                        <p className="text-sm text-gray-500">免费次数</p>
+                        <p className="text-sm text-gray-500">{t('profile.freeAttempts')}</p>
                         <p className="font-medium text-gray-900">5 次</p>
                       </div>
                     </div>
@@ -134,9 +134,9 @@ export default function ProfilePage() {
                   <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Zap className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">AI生成次数</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{t('profile.aiGenerations')}</h3>
                   <p className="text-3xl font-bold text-blue-600">28</p>
-                  <p className="text-sm text-gray-600">本月已使用</p>
+                  <p className="text-sm text-gray-600">{t('profile.usedThisMonth')}</p>
                 </CardContent>
               </Card>
 
@@ -145,9 +145,9 @@ export default function ProfilePage() {
                   <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Star className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">收藏作品</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{t('profile.collectedWorks')}</h3>
                   <p className="text-3xl font-bold text-green-600">12</p>
-                  <p className="text-sm text-gray-600">已收藏作品</p>
+                  <p className="text-sm text-gray-600">{t('profile.collectedWorksDesc')}</p>
                 </CardContent>
               </Card>
 
@@ -156,9 +156,9 @@ export default function ProfilePage() {
                   <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Crown className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">会员等级</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{t('profile.membershipLevel')}</h3>
                   <p className="text-3xl font-bold text-purple-600">VIP</p>
-                  <p className="text-sm text-gray-600">高级用户</p>
+                  <p className="text-sm text-gray-600">{t('profile.premiumUser')}</p>
                 </CardContent>
               </Card>
             </div>
@@ -168,18 +168,18 @@ export default function ProfilePage() {
               <Link href="/draw">
                 <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-green-500 hover:from-yellow-600 hover:to-green-600 text-white px-8">
                   <Zap className="w-5 h-5 mr-2" />
-                  开始AI创作
+                  {t('profile.startAICreation')}
                 </Button>
               </Link>
               <Link href="/gallery">
                 <Button variant="outline" size="lg" className="px-8">
                   <Star className="w-5 h-5 mr-2" />
-                  查看作品集
+                  {t('profile.viewGallery')}
                 </Button>
               </Link>
               <Button variant="outline" size="lg" className="px-8">
                 <Settings className="w-5 h-5 mr-2" />
-                账户设置
+                {t('profile.accountSettings')}
               </Button>
             </div>
           </div>

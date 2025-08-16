@@ -43,7 +43,7 @@ const Header: React.FC = () => {
               {t('nav.home')}
             </a>
             <a href="/pricing" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium">
-              定价
+              {t('nav.pricing')}
             </a>
             <a href="/gallery" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium">
               {t('nav.gallery')}
@@ -98,7 +98,7 @@ const Header: React.FC = () => {
                 {t('nav.home')}
               </a>
               <a href="/pricing" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium px-2">
-                定价
+                {t('nav.pricing')}
               </a>
               <a href="/gallery" className="text-gray-700 hover:text-yellow-600 transition-colors font-medium px-2">
                 {t('nav.gallery')}

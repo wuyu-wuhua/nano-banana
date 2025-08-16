@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useAuth } from '../contexts/auth-context';
 import { 
   Download, 
   Heart, 
@@ -14,11 +15,14 @@ import {
 import Header from './Header';
 import Footer from './Footer';
 import FloatingSupport from './FloatingSupport';
+import { Button } from './ui/button';
+import Link from 'next/link';
 
 interface DrawPageProps {}
 
 const DrawPage: React.FC<DrawPageProps> = () => {
   const { t } = useLanguage();
+  const { user } = useAuth();
   const [prompt, setPrompt] = useState('');
   const [style, setStyle] = useState('realistic');
   const [size, setSize] = useState<'1:1' | '3:4' | '4:3' | '16:9' | '9:16'>('1:1');
@@ -28,6 +32,7 @@ const DrawPage: React.FC<DrawPageProps> = () => {
   const [isFavorited, setIsFavorited] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   // 文生图尺寸映射 - 修正为后端API期望的格式
   const text2imgSizeMap = {
@@ -48,6 +53,11 @@ const DrawPage: React.FC<DrawPageProps> = () => {
   };
 
   const handleGenerate = async () => {
+    if (!user) {
+      setShowLoginModal(true);
+      return;
+    }
+    
     if (!prompt.trim()) return;
     
     setIsGenerating(true);
@@ -134,6 +144,35 @@ const DrawPage: React.FC<DrawPageProps> = () => {
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-green-50 to-blue-50">
       <Header />
 
+      {/* 登录提示弹框 */}
+      {showLoginModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-8 max-w-md mx-4 text-center">
+            <AlertCircle className="w-16 h-16 text-yellow-500 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-gray-900 mb-2">
+              请先登录
+            </h3>
+            <p className="text-gray-600 mb-6">
+              登录后才能使用AI图片生成功能
+            </p>
+            <div className="flex gap-3 justify-center">
+              <Button
+                onClick={() => setShowLoginModal(false)}
+                variant="outline"
+                size="lg"
+              >
+                取消
+              </Button>
+              <Link href="/auth/sign-in">
+                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-green-500 hover:from-yellow-600 hover:to-green-600 text-white">
+                  去登录
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
         {/* 页面标题 */}
         <div className="text-center mb-8">

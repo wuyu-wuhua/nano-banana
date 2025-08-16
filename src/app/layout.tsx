@@ -23,9 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <meta name="google-site-verification" content="7lXoF_EbQ99SY4x0uMEGp9NyudBbm7rMNFW1nMyVHLs" />
-        
+      <head>       
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KPSN56CS9"></script>
         <script

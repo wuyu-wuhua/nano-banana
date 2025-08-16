@@ -16,16 +16,7 @@ export function UserDropdownMenu() {
   }
 
   if (!user) {
-    return (
-      <div className="flex items-center gap-2">
-        <Link href="/auth/sign-in">
-          <Button variant="outline" size="sm">登录</Button>
-        </Link>
-        <Link href="/auth/sign-up">
-          <Button size="sm">注册</Button>
-        </Link>
-      </div>
-    )
+    return null; // 未登录时不显示任何内容
   }
 
   return (
@@ -64,15 +55,6 @@ export function UserDropdownMenu() {
             >
               <User className="w-4 h-4" />
               个人资料
-            </Link>
-            
-            <Link
-              href="/settings"
-              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-              onClick={() => setIsOpen(false)}
-            >
-              <Settings className="w-4 h-4" />
-              设置
             </Link>
           </div>
           
