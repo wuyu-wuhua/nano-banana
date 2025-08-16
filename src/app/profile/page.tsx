@@ -4,7 +4,7 @@ import { useAuth } from '~/contexts/auth-context'
 import { useLanguage } from '~/contexts/LanguageContext'
 import Header from '~/components/Header'
 import Footer from '~/components/Footer'
-import { DotPattern } from '~/components/ui/dot-pattern'
+import { DotPattern } from '~/components/magicui/dot-pattern'
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/card'
 import { Badge } from '~/components/ui/badge'
 import { Button } from '~/components/ui/button'
@@ -43,11 +43,11 @@ export default function ProfilePage() {
       
       <div className="relative flex-1 bg-white">
         <DotPattern
-          width={20}
-          height={20}
-          cr={1}
-          glow={true}
-          className="[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] text-gray-300/60"
+          width={50}
+          height={50}
+          cr={3}
+          glow={false}
+          className="text-gray-300 z-0"
         />
         
         <div className="container mx-auto px-4 py-8 pt-24 relative z-10">
@@ -100,9 +100,9 @@ export default function ProfilePage() {
                     <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
                       <Crown className="w-5 h-5 text-gray-600" />
                       <div>
-                        <p className="text-sm text-gray-500">用户ID</p>
-                        <p className="font-medium text-gray-900 font-mono text-sm">
-                          {user.id || 'ID-' + Math.random().toString(36).substr(2, 9).toUpperCase()}
+                        <p className="text-sm text-gray-500">用户邮箱</p>
+                        <p className="font-medium text-gray-900 text-sm">
+                          {user.email || 'user@example.com'}
                         </p>
                       </div>
                     </div>
