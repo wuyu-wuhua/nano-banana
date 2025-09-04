@@ -483,7 +483,7 @@ const Gallery: React.FC<GalleryProps> = ({ isHomePage = false }) => {
                 <img 
                   src={image.url} 
                   alt={t(image.titleKey)}
-                  className="w-full h-56 sm:h-72 md:h-96 lg:h-[28rem] xl:h-[32rem] object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-96 sm:h-80 md:h-[28rem] lg:h-[32rem] xl:h-[36rem] object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
