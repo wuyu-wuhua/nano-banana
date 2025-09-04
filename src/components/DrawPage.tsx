@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/auth-context';
 import { 
@@ -503,10 +504,11 @@ const DrawPage: React.FC<DrawPageProps> = () => {
                   
                   {uploadedImage ? (
                     <>
-                      <img
+                      <Image
                         src={uploadedImage}
                         alt="Uploaded image"
-                        className="w-full h-full object-contain rounded-xl"
+                        fill
+                        className="object-contain rounded-xl"
                       />
                       <button
                         onClick={handleClearUploadedImage}
@@ -573,10 +575,11 @@ const DrawPage: React.FC<DrawPageProps> = () => {
               >
                 {generatedImage ? (
                   <>
-                    <img
+                    <Image
                       src={generatedImage}
                       alt={t('draw.generatedImage')}
-                      className="w-full h-full object-contain rounded-lg"
+                      fill
+                      className="object-contain rounded-lg"
                     />
                     
                     {/* 提示信息 */}

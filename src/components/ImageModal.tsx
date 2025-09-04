@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import { X } from "lucide-react";
 import { Button } from "./ui/button";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -53,9 +54,11 @@ export function ImageModal({ isOpen, onClose, imageUrl, imageTitle }: ImageModal
 				)}
 
 				<div className="relative">
-					<img
+					<Image
 						src={imageUrl}
 						alt={imageTitle || t('gallery.zoomImage')}
+						width={800}
+						height={600}
 						className="max-w-full max-h-[90vh] object-contain"
 						onClick={(e) => e.stopPropagation()}
 					/>

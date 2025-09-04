@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { MessageCircle, X, Mail } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -87,7 +87,7 @@ const FloatingSupport: React.FC = () => {
   };
 
   // 鼠标移动事件
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     if (isDragging) {
       const newX = e.clientX - dragOffset.x;
       const newY = e.clientY - dragOffset.y;
@@ -101,12 +101,12 @@ const FloatingSupport: React.FC = () => {
         y: Math.max(0, Math.min(newY, maxY))
       });
     }
-  };
+  }, [isDragging, dragOffset.x, dragOffset.y]);
 
   // 鼠标松开事件
-  const handleMouseUp = () => {
+  const handleMouseUp = useCallback(() => {
     setIsDragging(false);
-  };
+  }, []);
 
   // 添加全局鼠标事件监听
   useEffect(() => {

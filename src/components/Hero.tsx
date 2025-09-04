@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Sparkles } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -54,9 +55,11 @@ const Hero: React.FC = () => {
           <div className="relative z-10 order-1 lg:order-2 mb-6 sm:mb-8 lg:mb-0">
             <div className="relative">
               {/* Main showcase image */}
-              <img 
+              <Image 
                 src="/images/1.jpg" 
                 alt="AI Generated Figurine Example"
+                width={600}
+                height={400}
                 className="w-full h-auto max-h-64 sm:max-h-80 lg:max-h-none object-contain rounded-lg sm:rounded-xl lg:rounded-2xl shadow-lg"
               />
               

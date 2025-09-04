@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { ExternalLink, Heart, CheckCircle, X, ZoomIn, Copy, Check, Trash2 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '../contexts/auth-context';
@@ -277,7 +278,7 @@ const Gallery: React.FC<GalleryProps> = ({ isHomePage = false }) => {
     }, 30000);
 
     return () => clearInterval(interval);
-  }, [isHomePage]); // 移除user依赖，避免用户登录状态变化时重复调用
+  }, [isHomePage, user?.id]); // 添加user?.id依赖
 
   // 监听图片添加事件，自动刷新画廊
   useEffect(() => {
@@ -480,9 +481,11 @@ const Gallery: React.FC<GalleryProps> = ({ isHomePage = false }) => {
           {allImages.map((image) => (
             <div key={`${image.isUserGenerated ? 'u' : 's'}-${image.id}`} className="group relative bg-white rounded-lg sm:rounded-xl lg:rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
               <div className="relative overflow-hidden">
-                <img 
+                <Image 
                   src={image.url} 
                   alt={t(image.titleKey)}
+                  width={400}
+                  height={400}
                   className="w-full h-96 sm:h-80 md:h-[28rem] lg:h-[32rem] xl:h-[36rem] object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

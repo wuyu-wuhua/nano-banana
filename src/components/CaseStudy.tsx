@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import Image from 'next/image';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const CaseStudy: React.FC = () => {
@@ -89,10 +90,11 @@ const CaseStudy: React.FC = () => {
                 </div>
                 <div className="flex justify-center">
                   <div className="relative w-48 sm:w-64 md:w-80 h-60 sm:h-80 md:h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg border border-gray-200">
-                    <img 
+                    <Image 
                       src={caseStudy.originalImage} 
                       alt={t('caseStudy.originalTitle')}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 </div>
@@ -105,10 +107,11 @@ const CaseStudy: React.FC = () => {
                     <div key={model.id} className="group">
                       <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100">
                         <div className="aspect-[4/5] overflow-hidden">
-                          <img 
+                          <Image 
                             src={model.image} 
                             alt={model.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
                           />
                         </div>
                       </div>

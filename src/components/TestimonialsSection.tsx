@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import Image from 'next/image';
 import { Star, Quote } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -100,9 +101,11 @@ const TestimonialsSection: React.FC = () => {
 
               {/* User Info */}
               <div className="flex items-center space-x-2 sm:space-x-4">
-                <img
+                <Image
                   src={testimonial.avatar}
                   alt={t(testimonial.nameKey)}
+                  width={48}
+                  height={48}
                   className="w-8 h-8 sm:w-12 sm:h-12 rounded-full object-cover border-2 border-gray-100"
                 />
                 <div>
