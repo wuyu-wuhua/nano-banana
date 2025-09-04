@@ -525,7 +525,7 @@ const Gallery: React.FC<GalleryProps> = ({ isHomePage = false }) => {
                     <button
                       onClick={() => handleDeleteImage(image)}
                       className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-red-50 active:scale-95 transition-all duration-200 shadow-lg touch-manipulation"
-                      title="删除图片"
+                      title={t('gallery.deleteImage')}
                     >
                       <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-red-500" />
                     </button>
@@ -535,7 +535,7 @@ const Gallery: React.FC<GalleryProps> = ({ isHomePage = false }) => {
                   {/* <button 
                     onClick={() => handleImageZoom(image)}
                     className="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white active:scale-95 transition-all duration-200 shadow-lg touch-manipulation"
-                    title="放大查看"
+                    title={t('gallery.zoomImage')}
                   >
                     <ZoomIn className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-gray-700" />
                   </button> */}

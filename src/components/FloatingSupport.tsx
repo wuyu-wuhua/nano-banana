@@ -123,7 +123,7 @@ const FloatingSupport: React.FC = () => {
 
   return (
     <div 
-      className="fixed z-50"
+      className="fixed z-50 hidden md:block"
       style={{ 
         left: `${position.x}px`, 
         top: `${position.y}px`,

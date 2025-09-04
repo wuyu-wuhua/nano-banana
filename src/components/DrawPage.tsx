@@ -456,7 +456,7 @@ const DrawPage: React.FC<DrawPageProps> = () => {
         {/* 页面标题 - 移动端优化 */}
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-2 sm:mb-3">{t('draw.title')}</h2>
-          <p className="text-gray-600 text-sm sm:text-lg">{t('draw.subtitle')}</p>
+          <p className="text-gray-600 text-sm sm:text-lg hidden sm:block">{t('draw.subtitle')}</p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 max-w-full">
@@ -533,7 +533,7 @@ const DrawPage: React.FC<DrawPageProps> = () => {
                 <button
                   onClick={handleGenerate}
                   disabled={!uploadedImage || isGenerating}
-                  className="w-full bg-gradient-to-r from-yellow-500 to-green-500 text-white py-4 sm:py-6 rounded-xl sm:rounded-2xl font-bold text-lg sm:text-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group"
+                  className="w-full bg-gradient-to-r from-yellow-500 to-green-500 text-white py-3 sm:py-6 rounded-xl sm:rounded-2xl font-bold text-base sm:text-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none relative overflow-hidden group"
                 >
                   <div className="relative z-10 flex items-center justify-center space-x-2 sm:space-x-3">
                     {isGenerating ? (
@@ -543,7 +543,7 @@ const DrawPage: React.FC<DrawPageProps> = () => {
                       </>
                     ) : (
                       <>
-                        <Wand2 className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <Wand2 className="w-4 h-4 sm:w-6 sm:h-6" />
                         <span className="text-sm sm:text-base">{t('draw.generateButton')}</span>
                         <span className="text-xs sm:text-sm opacity-80">({t('draw.costCredits').replace('{credits}', '10')})</span>
                       </>

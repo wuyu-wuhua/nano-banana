@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { X } from "lucide-react";
 import { Button } from "./ui/button";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface ImageModalProps {
 	isOpen: boolean;
@@ -12,6 +13,8 @@ interface ImageModalProps {
 }
 
 export function ImageModal({ isOpen, onClose, imageUrl, imageTitle }: ImageModalProps) {
+	const { t } = useLanguage();
+	
 	useEffect(() => {
 		const handleEscape = (e: KeyboardEvent) => {
 			if (e.key === "Escape") onClose();
@@ -52,7 +55,7 @@ export function ImageModal({ isOpen, onClose, imageUrl, imageTitle }: ImageModal
 				<div className="relative">
 					<img
 						src={imageUrl}
-						alt={imageTitle || "放大图片"}
+						alt={imageTitle || t('gallery.zoomImage')}
 						className="max-w-full max-h-[90vh] object-contain"
 						onClick={(e) => e.stopPropagation()}
 					/>

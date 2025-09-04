@@ -24,7 +24,7 @@ function SignInContent() {
       <Header />
       
       <WarpBackground 
-        className="flex-1 flex items-center justify-center p-6 md:p-10 pt-20 md:pt-32 bg-white"
+        className="flex-1 flex items-center justify-center p-4 sm:p-6 md:p-10 pt-16 sm:pt-20 md:pt-32 bg-white"
         perspective={800}
         beamsPerSide={4}
         beamSize={10}
@@ -33,7 +33,7 @@ function SignInContent() {
         beamDuration={5}
         gridColor="rgba(0, 0, 0, 0.05)"
       >
-        <div className="w-full max-w-md">
+        <div className="w-full max-w-sm sm:max-w-md md:max-w-lg">
           <LoginForm redirectTo={redirectTo} />
         </div>
       </WarpBackground>
