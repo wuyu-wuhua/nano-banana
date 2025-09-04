@@ -51,12 +51,12 @@ export function SignUpForm({
       const { error } = await supabase.auth.signUp({
         email,
         options: {
-          emailRedirectTo: `${window.location.origin}/protected`,
+          emailRedirectTo: `${window.location.origin}/`,
         },
         password,
       });
       if (error) throw error;
-      router.push("/auth/sign-up-success");
+      router.push("/");
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : t('auth.signup.error'));
     } finally {
