@@ -13,7 +13,7 @@ const TestimonialsSection: React.FC = () => {
       nameKey: 'testimonials.user1.name',
       roleKey: 'testimonials.user1.role',
       textKey: 'testimonials.user1.text',
-      avatar: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/1.jpeg',
       rating: 5
     },
     {
@@ -21,7 +21,7 @@ const TestimonialsSection: React.FC = () => {
       nameKey: 'testimonials.user2.name',
       roleKey: 'testimonials.user2.role',
       textKey: 'testimonials.user2.text',
-      avatar: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/2.webp',
       rating: 5
     },
     {
@@ -29,7 +29,7 @@ const TestimonialsSection: React.FC = () => {
       nameKey: 'testimonials.user3.name',
       roleKey: 'testimonials.user3.role',
       textKey: 'testimonials.user3.text',
-      avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/3.webp',
       rating: 5
     },
     {
@@ -37,7 +37,7 @@ const TestimonialsSection: React.FC = () => {
       nameKey: 'testimonials.user4.name',
       roleKey: 'testimonials.user4.role',
       textKey: 'testimonials.user4.text',
-      avatar: 'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/3.webp',
       rating: 5
     },
     {
@@ -45,7 +45,7 @@ const TestimonialsSection: React.FC = () => {
       nameKey: 'testimonials.user5.name',
       roleKey: 'testimonials.user5.role',
       textKey: 'testimonials.user5.text',
-      avatar: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/5.jpeg',
       rating: 5
     },
     {
@@ -53,7 +53,7 @@ const TestimonialsSection: React.FC = () => {
       nameKey: 'testimonials.user6.name',
       roleKey: 'testimonials.user6.role',
       textKey: 'testimonials.user6.text',
-      avatar: 'https://images.pexels.com/photos/1212984/pexels-photo-1212984.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop',
+      avatar: '/6.webp',
       rating: 5
     }
   ];

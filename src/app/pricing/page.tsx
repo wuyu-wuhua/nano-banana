@@ -110,7 +110,7 @@ export default function PricingPage() {
           </div>
 
           {/* 定价卡片 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto mb-8 sm:mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8 max-w-6xl mx-auto mb-6 sm:mb-12">
             {plans.map((plan, index) => (
               <Card 
                 key={plan.id} 
@@ -129,33 +129,33 @@ export default function PricingPage() {
                   </div>
                 )}
                 
-                <CardHeader className="text-left sm:text-center pb-4 sm:pb-6 px-4 sm:px-6">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-0 mb-3 sm:mb-4 sm:justify-center">
-                    <div className="flex items-center gap-0 sm:gap-0 mb-3 sm:mb-0">
-                      <div className={`w-12 h-12 sm:w-16 sm:h-16 ${
+                <CardHeader className="text-center pb-3 sm:pb-6 px-3 sm:px-6">
+                  <div className="flex flex-col items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className={`w-10 h-10 sm:w-16 sm:h-16 ${
                         plan.id === '1' ? 'from-blue-50 to-blue-100' :
                         plan.id === '2' ? 'from-yellow-50 to-green-100' :
                         'from-purple-50 to-purple-100'
                       } rounded-full flex items-center justify-center`}>
-                        {plan.id === '1' ? <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600" /> :
-                         plan.id === '2' ? <Star className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-600" /> :
-                         <Crown className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600" />}
+                        {plan.id === '1' ? <Zap className="w-5 h-5 sm:w-8 sm:h-8 text-blue-600" /> :
+                         plan.id === '2' ? <Star className="w-5 h-5 sm:w-8 sm:h-8 text-yellow-600" /> :
+                         <Crown className="w-5 h-5 sm:w-8 sm:h-8 text-purple-600" />}
                       </div>
-                      <CardTitle className="text-lg sm:text-2xl font-bold text-gray-900 mb-0 ml-2 sm:ml-0">
+                      <CardTitle className="text-lg sm:text-2xl font-bold text-gray-900">
                         {plan.name}
                       </CardTitle>
                     </div>
                     
-                    {/* 移动端价格显示在标题下方，桌面端显示在右侧 */}
-                    <div className="sm:hidden mb-4">
+                    {/* 移动端价格显示 */}
+                    <div className="sm:hidden">
                       <div className="flex flex-col items-center justify-center w-full text-center">
-                        <div className="flex items-baseline justify-center gap-1 mb-2 w-full">
-                          <span className="text-lg font-medium text-gray-500">$</span>
-                          <span className="text-3xl font-bold text-gray-900">
+                        <div className="flex items-baseline justify-center gap-1 mb-2">
+                          <span className="text-xl font-medium text-gray-500">$</span>
+                          <span className="text-4xl font-bold text-gray-900">
                             {plan.price}
                           </span>
                         </div>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full border border-gray-200">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-gradient-to-r from-gray-50 to-gray-100 rounded-full border border-gray-200">
                           <span className="text-xs text-gray-600 font-medium">
                             {t('pricing.oneTime')}
                           </span>
@@ -186,43 +186,43 @@ export default function PricingPage() {
                   </div>
                   
                   {/* 积分和生成次数 */}
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div className="text-left sm:text-center p-3 sm:p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200/50">
-                      <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">{plan.credits}</div>
+                  <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-3 sm:mb-6">
+                    <div className="text-center p-2.5 sm:p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200/50">
+                      <div className="text-xl sm:text-3xl font-bold text-gray-900 mb-1">{plan.credits}</div>
                       <div className="text-xs sm:text-sm text-gray-600 font-medium">{t('pricing.credits')}</div>
                     </div>
-                    <div className="text-left sm:text-center p-3 sm:p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200/50">
-                      <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">{Math.floor(plan.credits / 10)}</div>
+                    <div className="text-center p-2.5 sm:p-4 bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl border border-gray-200/50">
+                      <div className="text-xl sm:text-3xl font-bold text-gray-900 mb-1">{Math.floor(plan.credits / 10)}</div>
                       <div className="text-xs sm:text-sm text-gray-600 font-medium">{t('pricing.generations')}</div>
                     </div>
                   </div>
                 </CardHeader>
                 
-                <CardContent className="px-4 sm:px-6">
-                  <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                <CardContent className="px-3 sm:px-6 pb-4 sm:pb-6">
+                  <ul className="space-y-1.5 sm:space-y-3 mb-3 sm:mb-6">
                     {plan.id === '1' && (t('pricing.features.basic') as unknown as string[]).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-start gap-2 sm:gap-3">
                         <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm text-gray-700 text-left">{feature}</span>
+                        <span className="text-xs sm:text-sm text-gray-700">{feature}</span>
                       </li>
                     ))}
                     {plan.id === '2' && (t('pricing.features.advanced') as unknown as string[]).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-start gap-2 sm:gap-3">
                         <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm text-gray-700 text-left">{feature}</span>
+                        <span className="text-xs sm:text-sm text-gray-700">{feature}</span>
                       </li>
                     ))}
                     {plan.id === '3' && (t('pricing.features.professional') as unknown as string[]).map((feature: string, featureIndex: number) => (
                       <li key={featureIndex} className="flex items-start gap-2 sm:gap-3">
                         <Check className="w-3 h-3 sm:w-4 sm:h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-xs sm:text-sm text-gray-700 text-gray-700 text-left">{feature}</span>
+                        <span className="text-xs sm:text-sm text-gray-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   
                   <Button 
                     onClick={() => handleBuyNow(plan)}
-                    className={`w-full py-3 sm:py-4 text-sm sm:text-lg font-semibold bg-gradient-to-r ${
+                    className={`w-full py-2.5 sm:py-4 text-sm sm:text-lg font-semibold bg-gradient-to-r ${
                       plan.id === '1' ? 'from-blue-500 to-blue-600' :
                       plan.id === '2' ? 'from-yellow-500 to-green-500' :
                       'from-purple-500 to-purple-600'
@@ -238,23 +238,23 @@ export default function PricingPage() {
           {/* 额外信息 */}
           <div className="text-center max-w-4xl mx-auto">
             <Card className="border-0 bg-white shadow-lg">
-              <CardContent className="p-4 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
+              <CardContent className="p-3 sm:p-8">
+                <h3 className="text-lg sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">
                   {t('pricing.whyChoose')}
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                   <div className="text-center">
-                    <Gift className="w-8 h-8 sm:w-12 sm:h-12 text-yellow-500 mx-auto mb-2 sm:mb-3" />
+                    <Gift className="w-6 h-6 sm:w-12 sm:h-12 text-yellow-500 mx-auto mb-2 sm:mb-3" />
                     <h4 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">{t('pricing.benefits.flexible.title')}</h4>
                     <p className="text-gray-600 text-xs sm:text-sm">{t('pricing.benefits.flexible.desc')}</p>
                   </div>
                   <div className="text-center">
-                    <Target className="w-8 h-8 sm:w-12 sm:h-12 text-green-500 mx-auto mb-2 sm:mb-3" />
+                    <Target className="w-6 h-6 sm:w-12 sm:h-12 text-green-500 mx-auto mb-2 sm:mb-3" />
                     <h4 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">{t('pricing.benefits.transparent.title')}</h4>
                     <p className="text-gray-600 text-xs sm:text-sm">{t('pricing.benefits.transparent.desc')}</p>
                   </div>
                   <div className="text-center sm:col-span-2 lg:col-span-1">
-                    <Sparkles className="w-8 h-8 sm:w-12 sm:h-12 text-purple-500 mx-auto mb-2 sm:mb-3" />
+                    <Sparkles className="w-6 h-6 sm:w-12 sm:h-12 text-purple-500 mx-auto mb-2 sm:mb-3" />
                     <h4 className="font-semibold text-gray-900 mb-1 sm:mb-2 text-sm sm:text-base">{t('pricing.benefits.value.title')}</h4>
                     <p className="text-gray-600 text-xs sm:text-sm">{t('pricing.benefits.value.desc')}</p>
                   </div>
@@ -264,16 +264,16 @@ export default function PricingPage() {
           </div>
 
           {/* 行动按钮 */}
-          <div className="text-center mt-8 sm:mt-12">
-            <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">{t('pricing.contact')}</p>
-            <div className="flex flex-row sm:flex-col gap-3 sm:gap-4 justify-center">
-              <Link href="/draw">
-                <Button size="lg" className="bg-gradient-to-r from-yellow-500 to-green-500 hover:from-yellow-600 hover:to-green-600 text-white px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base">
+          <div className="text-center mt-6 sm:mt-12">
+            <p className="text-gray-600 mb-3 sm:mb-6 text-sm sm:text-base">{t('pricing.contact')}</p>
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center max-w-sm sm:max-w-none mx-auto">
+              <Link href="/draw" className="flex-1">
+                <Button size="lg" className="w-full bg-gradient-to-r from-yellow-500 to-green-500 hover:from-yellow-600 hover:to-green-600 text-white px-4 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
                   <Zap className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                   {t('pricing.startCreating')}
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" className="px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto px-4 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base">
                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
                 {t('pricing.contactSupport')}
               </Button>
@@ -283,16 +283,16 @@ export default function PricingPage() {
       </div>
       
       {/* 悬浮球 - 移动端优化 */}
-      <div className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
-        <div className="flex flex-col gap-2 sm:gap-3">
-          <button className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-yellow-500 to-green-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-white hover:scale-110">
-            <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
+      <div className="fixed bottom-3 sm:bottom-6 right-3 sm:right-6 z-50">
+        <div className="flex flex-col gap-1.5 sm:gap-3">
+          <button className="w-9 h-9 sm:w-12 sm:h-12 bg-gradient-to-r from-yellow-500 to-green-500 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-white hover:scale-110 active:scale-95">
+            <Zap className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
           </button>
-          <button className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-700 hover:scale-110 border border-gray-200">
-            <Star className="w-4 h-4 sm:w-5 sm:h-5" />
+          <button className="w-9 h-9 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-700 hover:scale-110 active:scale-95 border border-gray-200">
+            <Star className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
           </button>
-          <button className="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-700 hover:scale-110 border border-gray-200">
-            <Crown className="w-4 h-4 sm:w-5 sm:h-5" />
+          <button className="w-9 h-9 sm:w-12 sm:h-12 bg-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center text-gray-700 hover:scale-110 active:scale-95 border border-gray-200">
+            <Crown className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
           </button>
         </div>
       </div>

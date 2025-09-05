@@ -109,20 +109,20 @@ export function CheckoutForm({ plan, onSuccess, onClose }: CheckoutFormProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="w-full max-w-md">
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-2 sm:p-4">
+      <div className="w-full max-w-sm sm:max-w-md">
         <Card className="bg-white border-0 shadow-2xl">
-          <CardHeader className="pb-4 border-b border-gray-100">
+          <CardHeader className="pb-3 sm:pb-4 border-b border-gray-100">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-yellow-500 to-green-500 rounded-full flex items-center justify-center">
-                  <Star className="w-5 h-5 text-white" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-yellow-500 to-green-500 rounded-full flex items-center justify-center">
+                  <Star className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <CardTitle className="text-xl font-bold text-gray-900">
+                  <CardTitle className="text-lg sm:text-xl font-bold text-gray-900">
                     购买{plan.name}
                   </CardTitle>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500">
                     每次AI生成消耗10积分
                   </p>
                 </div>
@@ -131,75 +131,75 @@ export function CheckoutForm({ plan, onSuccess, onClose }: CheckoutFormProps) {
                 variant="ghost"
                 size="sm"
                 onClick={onClose}
-                className="h-8 w-8 p-0 hover:bg-gray-100"
+                className="h-7 w-7 sm:h-8 sm:w-8 p-0 hover:bg-gray-100"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3 h-3 sm:w-4 sm:h-4" />
               </Button>
             </div>
           </CardHeader>
 
-          <CardContent className="pt-6">
+          <CardContent className="pt-4 sm:pt-6">
             {/* 套餐详情 */}
-            <div className="bg-gradient-to-r from-yellow-50 to-green-50 rounded-xl p-4 mb-6 border border-yellow-200">
-              <div className="flex items-center justify-between mb-3">
+            <div className="bg-gradient-to-r from-yellow-50 to-green-50 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6 border border-yellow-200">
+              <div className="flex items-center justify-between mb-2 sm:mb-3">
                 <div className="flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-yellow-600" />
-                  <span className="font-semibold text-gray-900">{plan.credits} 积分</span>
+                  <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600" />
+                  <span className="text-sm sm:text-base font-semibold text-gray-900">{plan.credits} 积分</span>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-green-600">${plan.price}</div>
-                  <div className="text-sm text-gray-600">一次性</div>
+                  <div className="text-xl sm:text-2xl font-bold text-green-600">${plan.price}</div>
+                  <div className="text-xs sm:text-sm text-gray-600">一次性</div>
                 </div>
               </div>
-              <p className="text-sm text-gray-600">{plan.description}</p>
+              <p className="text-xs sm:text-sm text-gray-600">{plan.description}</p>
             </div>
 
             {/* 支付表单 */}
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   信用卡信息
                 </label>
-                <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
+                <div className="bg-gray-50 rounded-lg p-2.5 sm:p-3 border border-gray-200">
                   <CardElement options={cardElementOptions} />
                 </div>
                 <p className="text-xs text-gray-500 mt-2 flex items-center gap-2">
-                  <Shield className="w-4 h-4 text-green-600" />
+                  <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-600" />
                   您的支付信息受到256位SSL加密保护
                 </p>
               </div>
 
               {error && (
-                <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                  <p className="text-sm text-red-600">{error}</p>
+                <div className="bg-red-50 border border-red-200 rounded-lg p-2.5 sm:p-3">
+                  <p className="text-xs sm:text-sm text-red-600">{error}</p>
                 </div>
               )}
 
               {/* 支付摘要 */}
-              <div className="bg-gradient-to-r from-yellow-500 to-green-500 rounded-xl p-4 text-white">
-                <div className="flex items-center justify-between mb-3">
+              <div className="bg-gradient-to-r from-yellow-500 to-green-500 rounded-xl p-3 sm:p-4 text-white">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
                   <div className="text-center flex-1">
-                    <div className="text-2xl font-bold">{plan.credits}</div>
-                    <div className="text-sm opacity-90">积分</div>
+                    <div className="text-xl sm:text-2xl font-bold">{plan.credits}</div>
+                    <div className="text-xs sm:text-sm opacity-90">积分</div>
                   </div>
                   <div className="text-center flex-1">
-                    <div className="text-2xl font-bold">{Math.floor(plan.credits / 10)}</div>
-                    <div className="text-sm opacity-90">次生成</div>
+                    <div className="text-xl sm:text-2xl font-bold">{Math.floor(plan.credits / 10)}</div>
+                    <div className="text-xs sm:text-sm opacity-90">次生成</div>
                   </div>
                 </div>
                 <Button
                   type="submit"
                   disabled={loading || !stripe}
-                  className="w-full bg-white text-green-600 hover:bg-gray-50 font-semibold py-3 text-lg"
+                  className="w-full bg-white text-green-600 hover:bg-gray-50 font-semibold py-2.5 sm:py-3 text-base sm:text-lg"
                 >
                   {loading ? (
                     <div className="flex items-center gap-2">
-                      <div className="w-4 h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+                      <div className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-green-600 border-t-transparent rounded-full animate-spin"></div>
                       处理中...
                     </div>
                   ) : (
                     <div className="flex items-center gap-2">
-                      <Check className="w-5 h-5" />
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5" />
                       立即支付 ${plan.price}
                     </div>
                   )}
@@ -211,7 +211,7 @@ export function CheckoutForm({ plan, onSuccess, onClose }: CheckoutFormProps) {
                   type="button"
                   variant="outline"
                   onClick={onClose}
-                  className="w-full"
+                  className="w-full py-2 sm:py-2.5 text-sm sm:text-base"
                 >
                   取消
                 </Button>
