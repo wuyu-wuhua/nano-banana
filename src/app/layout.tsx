@@ -8,8 +8,8 @@ import CookieConsent from '../components/CookieConsent'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Nano Banana - AI Image Generator | Create Art from Text',
-  description: 'Transform words into stunning images with Nano Banana AI. Generate unique artwork from text in seconds. Professional AI technology for creators.',
+  title: 'Nano Banana - AI公仔生成器 | 從文字創建3D公仔',
+  description: '使用Nano Banana AI將文字轉化為驚豔的3D公仔。幾秒鐘內從文字生成獨特的公仔模型。為創作者提供的專業AI技術。',
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="zh-TW">
       <head>       
         {/* 条件加载追踪脚本 - 只在用户同意后加载 */}
         <script

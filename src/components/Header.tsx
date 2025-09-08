@@ -23,7 +23,7 @@ const Header: React.FC = () => {
     setIsLanguageMenuOpen(!isLanguageMenuOpen);
   };
 
-  const handleLanguageChange = (lang: 'en' | 'zh') => {
+  const handleLanguageChange = (lang: 'en' | 'zh' | 'zh-tw') => {
     setLanguage(lang);
     setIsLanguageMenuOpen(false);
   };
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
         <div className="flex items-center h-14 sm:h-16">
           {/* Logo and Title */}
-          <div className="flex items-center space-x-1 sm:space-x-2 mr-4 sm:mr-8 flex-shrink-0">
+          <Link href="/" className="flex items-center space-x-1 sm:space-x-2 mr-4 sm:mr-8 flex-shrink-0 hover:opacity-80 transition-opacity">
             <div className="w-6 h-6 sm:w-8 sm:h-8 relative">
               <Image 
                 src="/logo.png" 
@@ -59,7 +59,7 @@ const Header: React.FC = () => {
             <span className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-yellow-500 to-green-500 bg-clip-text text-transparent">
               Nano Banana
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 flex-1">
@@ -84,14 +84,14 @@ const Header: React.FC = () => {
               <button
                 onClick={toggleLanguageMenu}
                 className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-r from-yellow-50 to-green-50 hover:from-yellow-100 hover:to-green-100 flex items-center justify-center transition-all duration-200 border border-yellow-200 hover:border-yellow-300"
-                title={language === 'en' ? 'Switch Language' : '切换语言'}
+                title={language === 'en' ? 'Switch Language' : language === 'zh' ? '切换语言' : '切換語言'}
               >
                 <Globe className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-600" />
               </button>
               
               {/* Language Dropdown Menu */}
               {isLanguageMenuOpen && (
-                <div className="absolute right-0 mt-2 w-32 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50">
+                <div className="absolute right-0 mt-2 w-36 bg-white rounded-lg shadow-lg border border-gray-200 py-1 z-50">
                   <button
                     onClick={() => handleLanguageChange('en')}
                     className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
@@ -106,7 +106,15 @@ const Header: React.FC = () => {
                       language === 'zh' ? 'text-yellow-600 font-medium' : 'text-gray-700'
                     }`}
                   >
-                    中文
+                    中文简体
+                  </button>
+                  <button
+                    onClick={() => handleLanguageChange('zh-tw')}
+                    className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-50 transition-colors ${
+                      language === 'zh-tw' ? 'text-yellow-600 font-medium' : 'text-gray-700'
+                    }`}
+                  >
+                    中文繁體
                   </button>
                 </div>
               )}

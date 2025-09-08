@@ -3,8 +3,8 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface LanguageContextType {
-  language: 'en' | 'zh';
-  setLanguage: (lang: 'en' | 'zh') => void;
+  language: 'en' | 'zh' | 'zh-tw';
+  setLanguage: (lang: 'en' | 'zh' | 'zh-tw') => void;
   t: (key: string) => string;
 }
 
@@ -824,22 +824,22 @@ const translations = {
       aiGenerator: 'AI生成器'
     },
     hero: {
-      title: '将你的想法转化为惊艳的手办',
-      subtitle: '使用我们先进的AI 3D模型生成技术，在几秒钟内创作出美丽、独特的手办模型',
+      title: '将你的想法转化为惊艳的公仔',
+      subtitle: '使用我们先进的AI 3D模型生成技术，在几秒钟内创作出美丽、独特的公仔模型',
       cta: '立即开始创作',
       learnMore: '了解更多',
-      examplePrompt: '粉色头发的可爱动漫女孩手办',
+      examplePrompt: '粉色头发的可爱动漫女孩公仔',
     },
     what: {
       title: '什么是Nano Banana？',
-      subtitle: '一个AI驱动的平台，将你的文字描述转化为惊艳的3D手办模型',
+      subtitle: '一个AI驱动的平台，将你的文字描述转化为惊艳的3D公仔模型',
       feature1: {
         title: 'AI驱动生成',
-        desc: '先进的人工智能在几秒钟内将你的文字描述转化为惊艳、独特的3D手办模型',
+        desc: '先进的人工智能在几秒钟内将你的文字描述转化为惊艳、独特的3D公仔模型',
       },
       feature2: {
-        title: '多种手办风格',
-        desc: '选择动漫、写实、Q版、奇幻等数十种手办风格',
+        title: '多种公仔风格',
+        desc: '选择动漫、写实、Q版、奇幻等数十种公仔风格',
       },
       feature3: {
         title: '高质量3D模型',
@@ -847,12 +847,12 @@ const translations = {
       },
       feature4: {
         title: '极速生成',
-        desc: '在30秒内获得你的定制手办模型。无需等待，无延迟 - 即时创作',
+        desc: '在30秒内获得你的定制公仔模型。无需等待，无延迟 - 即时创作',
       },
     },
     why: {
       title: '为什么选择Nano Banana？',
-      subtitle: '体验3D手办创作的未来',
+      subtitle: '体验3D公仔创作的未来',
       reason1: {
         title: '隐私与安全',
         desc: '你的提示词和生成的3D模型完全私密。我们绝不会在未经许可的情况下存储或分享你的创意内容',
@@ -860,7 +860,7 @@ const translations = {
       },
       reason2: {
         title: '创作者信赖',
-        desc: '加入超过50万名艺术家、设计师和创作者，他们都依赖Nano Banana进行手办项目',
+        desc: '加入超过50万名艺术家、设计师和创作者，他们都依赖Nano Banana进行公仔项目',
         stats: '创作者信赖'
       },
       reason3: {
@@ -876,39 +876,39 @@ const translations = {
       stats: {
         uptime: '运行时间保证',
         support: '客户支持',
-        images: '已生成手办',
-        styles: '手办风格',
+        images: '已生成公仔',
+        styles: '公仔风格',
       },
     },
     how: {
       title: '如何使用',
-      subtitle: '创作手办的三个简单步骤',
+      subtitle: '创作公仔的三个简单步骤',
       step1: {
         title: '输入你的提示词',
-        desc: '用简单的词汇描述你的手办愿景。尽可能创意和详细',
+        desc: '用简单的词汇描述你的公仔愿景。尽可能创意和详细',
       },
       step2: {
         title: '选择你的风格',
-        desc: '选择各种手办风格，如动漫、写实、Q版等',
+        desc: '选择各种公仔风格，如动漫、写实、Q版等',
       },
       step3: {
         title: '下载你的模型',
-        desc: '获得令人惊艳的AI生成3D手办模型，随时可用于3D打印',
+        desc: '获得令人惊艳的AI生成3D公仔模型，随时可用于3D打印',
       },
     },
     stats: {
-      images: '已创建手办',
+      images: '已创建公仔',
       users: '活跃用户',
       uptime: '运行时间',
       support: '支持服务',
     },
     testimonials: {
       title: '用户评价',
-      subtitle: '加入数千名满意的创作者，他们已经使用Nano Banana将想法转化为惊艳的手办模型。以下是他们Nano Banana体验的评价',
+      subtitle: '加入数千名满意的创作者，他们已经使用Nano Banana将想法转化为惊艳的公仔模型。以下是他们Nano Banana体验的评价',
       user1: {
         name: '陈莎拉',
         role: '3D艺术家',
-        text: 'Nano Banana彻底改变了我的创意工作流程。AI生成3D手办的质量绝对令人惊艳，可用的风格种类令人难以置信。我每天都在客户项目中使用它。',
+        text: 'Nano Banana彻底改变了我的创意工作流程。AI生成3D公仔的质量绝对令人惊艳，可用的风格种类令人难以置信。我每天都在客户项目中使用它。',
       },
       user2: {
         name: '马库斯·罗德里格斯',
@@ -918,7 +918,7 @@ const translations = {
       user3: {
         name: '艾米丽·沃森',
         role: '收藏家',
-        text: '起初我对AI生成手办持怀疑态度，但Nano Banana完全改变了我的想法。模型如此详细和创意 - 有时甚至比我想象的更好。就像拥有一个个人雕塑师。',
+        text: '起初我对AI生成公仔持怀疑态度，但Nano Banana完全改变了我的想法。模型如此详细和创意 - 有时甚至比我想象的更好。就像拥有一个个人雕塑师。',
       },
       user4: {
         name: '金大卫',
@@ -938,7 +938,7 @@ const translations = {
       stats: {
         averageRating: '平均评分',
         happyUsers: '满意用户',
-        imagesGenerated: '已生成手办',
+        imagesGenerated: '已生成公仔',
         satisfactionRate: '满意度',
       },
     },
@@ -948,24 +948,24 @@ const translations = {
       contact: '还有问题？我们随时为你提供帮助！',
       contactButton: '联系支持',
       q1: 'Nano Banana是如何工作的？',
-      a1: 'Nano Banana使用先进的AI模型来解读你的文字描述并生成相应的3D手办模型。只需输入你想要创建的内容，选择你喜欢的风格，我们的AI就会在几秒钟内创建独特的3D模型。',
-      q2: '我可以生成什么类型的手办？',
-      a2: '你可以生成几乎任何类型的手办 - 从动漫角色到写实人物、Q版风格、奇幻生物、动物等等。我们的AI支持150多种不同的手办风格，可以处理复杂、详细的提示词。',
-      q3: '我可以创建的手办数量有限制吗？',
-      a3: '免费用户每天最多可以生成10个手办。高级订阅用户可以获得无限生成、优先处理和访问高级功能的权限，如更高细节级别和独家手办风格。',
+      a1: 'Nano Banana使用先进的AI模型来解读你的文字描述并生成相应的3D公仔模型。只需输入你想要创建的内容，选择你喜欢的风格，我们的AI就会在几秒钟内创建独特的3D模型。',
+      q2: '我可以生成什么类型的公仔？',
+      a2: '你可以生成几乎任何类型的公仔 - 从动漫角色到写实人物、Q版风格、奇幻生物、动物等等。我们的AI支持150多种不同的公仔风格，可以处理复杂、详细的提示词。',
+      q3: '我可以创建的公仔数量有限制吗？',
+      a3: '免费用户每天最多可以生成10个公仔。高级订阅用户可以获得无限生成、优先处理和访问高级功能的权限，如更高细节级别和独家公仔风格。',
       q4: '生成的3D模型质量如何？',
       a4: '免费用户获得标准质量的模型。高级用户可以生成高细节模型，完美适用于3D打印、游戏和专业用途。',
-      q5: '我可以商业使用生成的手办吗？',
-      a5: '是的！所有使用Nano Banana生成的手办都可以用于商业目的。你拥有创作的完全权利，包括销售、修改和分发它们的权利。',
-      q6: '生成手办需要多长时间？',
-      a6: '大多数手办在15-30秒内生成。高级用户享受优先处理，在高峰时段可以将生成时间缩短到仅10秒。',
+      q5: '我可以商业使用生成的公仔吗？',
+      a5: '是的！所有使用Nano Banana生成的公仔都可以用于商业目的。你拥有创作的完全权利，包括销售、修改和分发它们的权利。',
+      q6: '生成公仔需要多长时间？',
+      a6: '大多数公仔在15-30秒内生成。高级用户享受优先处理，在高峰时段可以将生成时间缩短到仅10秒。',
       q7: 'Nano Banana与其他AI生成器有什么不同？',
-      a7: 'Nano Banana专注于3D手办生成，注重质量、速度和用户体验。我们使用最新的AI模型，提供比竞争对手更多的手办风格，提供更好的提示词理解，并保持行业最高的3D模型质量标准。',
+      a7: 'Nano Banana专注于3D公仔生成，注重质量、速度和用户体验。我们使用最新的AI模型，提供比竞争对手更多的公仔风格，提供更好的提示词理解，并保持行业最高的3D模型质量标准。',
       q8: '我的数据安全私密吗？',
       a8: '绝对安全。我们认真对待隐私。你的提示词和生成的3D模型都经过加密，绝不会与第三方共享。你可以随时删除你的账户和所有相关数据。',
     },
     footer: {
-      description: '使用Nano Banana的尖端AI技术，将你的想象力转化为惊艳的3D手办作品。通过简单的文字提示，创作、分享和发现令人惊叹的3D模型。',
+      description: '使用Nano Banana的尖端AI技术，将你的想象力转化为惊艳的3D公仔作品。通过简单的文字提示，创作、分享和发现令人惊叹的3D模型。',
       company: '公司',
       product: '产品',
       support: '支持',
@@ -1225,13 +1225,13 @@ const translations = {
       },
     },
     gallery: {
-      title: '手办画廊',
-      subtitle: '探索我们社区使用Nano Banana AI技术创作的惊艳手办模型。获得灵感并创作你自己的杰作',
+      title: '公仔画廊',
+      subtitle: '探索我们社区使用Nano Banana AI技术创作的惊艳公仔模型。获得灵感并创作你自己的杰作',
       loadMore: '加载更多作品',
       prompt: '提示词：',
       refresh: '刷新画廊',
-      loginRequired: '请先登录以将手办添加到您的画廊',
-      alreadyInGallery: '此手办已在您的画廊中',
+      loginRequired: '请先登录以将公仔添加到您的画廊',
+      alreadyInGallery: '此公仔已在您的画廊中',
       addedToGallery: '成功添加到您的画廊！',
       addFailed: '添加到画廊失败，请重试',
       removedFromGallery: '成功从您的画廊中移除',
@@ -1243,56 +1243,56 @@ const translations = {
       copyFailed: '复制提示词失败，请重试',
       userGenerated: {
         badge: '用户创作',
-        title: '用户AI生成手办',
-        desc: '使用Nano Banana AI技术创建的独特手办模型',
+        title: '用户AI生成公仔',
+        desc: '使用Nano Banana AI技术创建的独特公仔模型',
         prompt: '您的创意提示',
         createdAt: '创建于'
       },
       image1: {
-        title: '神秘精灵手办',
-        desc: '一个充满发光翅膀和空灵美丽的魔法精灵手办',
+        title: '神秘精灵公仔',
+        desc: '一个充满发光翅膀和空灵美丽的魔法精灵公仔',
       },
       image2: {
-        title: '赛博朋克机器人手办',
-        desc: '一个拥有霓虹细节和金属质感的未来机器人手办',
+        title: '赛博朋克机器人公仔',
+        desc: '一个拥有霓虹细节和金属质感的未来机器人公仔',
       },
       image3: {
-        title: '海洋美人鱼手办',
-        desc: '一个充满活力海洋色彩的宁静美人鱼手办',
+        title: '海洋美人鱼公仔',
+        desc: '一个充满活力海洋色彩的宁静美人鱼公仔',
       },
       image4: {
-        title: '山龙手办',
-        desc: '拥有戏剧性翅膀和鳞片的雄伟龙手办',
+        title: '山龙公仔',
+        desc: '拥有戏剧性翅膀和鳞片的雄伟龙公仔',
       },
       image5: {
-        title: '太空探索者手办',
-        desc: '一个拥有星系主题细节的惊艳宇航员手办',
+        title: '太空探索者公仔',
+        desc: '一个拥有星系主题细节的惊艳宇航员公仔',
       },
       image6: {
-        title: '抽象艺术手办',
-        desc: '充满流动艺术设计的 vibrant 抽象手办',
+        title: '抽象艺术公仔',
+        desc: '充满流动艺术设计的 vibrant 抽象公仔',
       },
       image7: {
-        title: '野生动物手办',
-        desc: '一个拥有详细毛发和特征的雄伟动物手办',
+        title: '野生动物公仔',
+        desc: '一个拥有详细毛发和特征的雄伟动物公仔',
       },
       image8: {
-        title: '建筑手办',
-        desc: '拥有独特几何图案的现代建筑手办',
+        title: '建筑公仔',
+        desc: '拥有独特几何图案的现代建筑公仔',
       },
       image9: {
-        title: '复古汽车手办',
-        desc: '怀旧风格中的经典复古汽车手办',
+        title: '复古汽车公仔',
+        desc: '怀旧风格中的经典复古汽车公仔',
       },
-      prompt1: '魔法精灵手办，发光翅膀，空灵美丽，奇幻风格',
-      prompt2: '赛博朋克机器人手办，霓虹细节，金属质感，未来设计',
-      prompt3: '美人鱼手办，海洋色彩，宁静美丽，水生主题',
-      prompt4: '龙手办，雄伟翅膀，戏剧性鳞片，奇幻生物',
-      prompt5: '宇航员手办，星系细节，太空探索者，宇宙主题',
-      prompt6: '抽象手办，活力色彩，流动设计，艺术风格',
-      prompt7: '动物手办，详细毛发，真实特征，野生动物主题',
-      prompt8: '建筑手办，几何图案，现代建筑，城市设计',
-      prompt9: '复古汽车手办，经典设计，怀旧风格，复古主题',
+      prompt1: '魔法精灵公仔，发光翅膀，空灵美丽，奇幻风格',
+      prompt2: '赛博朋克机器人公仔，霓虹细节，金属质感，未来设计',
+      prompt3: '美人鱼公仔，海洋色彩，宁静美丽，水生主题',
+      prompt4: '龙公仔，雄伟翅膀，戏剧性鳞片，奇幻生物',
+      prompt5: '宇航员公仔，星系细节，太空探索者，宇宙主题',
+      prompt6: '抽象公仔，活力色彩，流动设计，艺术风格',
+      prompt7: '动物公仔，详细毛发，真实特征，野生动物主题',
+      prompt8: '建筑公仔，几何图案，现代建筑，城市设计',
+      prompt9: '复古汽车公仔，经典设计，怀旧风格，复古主题',
       // 新增图片的翻译
       image10: {
         title: '薄荷水',
@@ -1367,57 +1367,57 @@ const translations = {
     },
     draw: {
       prompt: '生成自提示词：',
-      heroExamplePrompt: '粉色头发的可爱动漫女孩手办',
-      title: 'AI手办生成器',
-      subtitle: '使用我们先进的AI技术，将你的想法转化为惊艳的3D手办模型',
-      promptPlaceholder: '描述你想要创建的手办...',
-      styleLabel: '手办风格',
+      heroExamplePrompt: '粉色头发的可爱动漫女孩公仔',
+      title: 'AI公仔生成器',
+      subtitle: '使用我们先进的AI技术，将你的想法转化为惊艳的3D公仔模型',
+      promptPlaceholder: '描述你想要创建的公仔...',
+      styleLabel: '公仔风格',
       sizeLabel: '模型尺寸',
-      generateButton: '生成手办',
+      generateButton: '生成公仔',
       generating: '生成中...',
       downloadButton: '下载',
       favoriteButton: '收藏',
       regenerateButton: '重新生成',
-      successMessage: '手办生成成功！',
+      successMessage: '公仔生成成功！',
       errorMessage: '生成失败，请重试',
       waitingForGeneration: '等待生成',
       success: '成功',
-      describeYourIdea: '描述你的手办创意',
-      describeYourIdeaDesc: '详细描述你想要生成的手办内容',
+      describeYourIdea: '描述你的公仔创意',
+      describeYourIdeaDesc: '详细描述你想要生成的公仔内容',
       result: '生成结果',
       enterPromptAndClick: '输入提示词并点击生成按钮',
-      styleRealistic: '🎭 写实风格 - 逼真的手办效果',
-      styleAnime: '🎌 动漫风格 - 日式动漫手办',
-      styleOilPainting: '🖼️ Q版风格 - 可爱的Q版手办',
-      styleWatercolor: '💧 奇幻风格 - 奇幻生物手办',
-      styleSketch: '✏️ 简约风格 - 极简手办设计',
+      styleRealistic: '🎭 写实风格 - 逼真的公仔效果',
+      styleAnime: '🎌 动漫风格 - 日式动漫公仔',
+      styleOilPainting: '🖼️ Q版风格 - 可爱的Q版公仔',
+      styleWatercolor: '💧 奇幻风格 - 奇幻生物公仔',
+      styleSketch: '✏️ 简约风格 - 极简公仔设计',
       sizeSquare: '⬜ 小型',
       sizePortrait: '📱 中型',
       sizeLandscape: '🖥️ 大型',
       sizeWidescreen: '🎬 超大',
       sizeMobilePortrait: '📱 迷你',
-      tip: '提示：描述越详细，生成的手办越符合你的想象',
+      tip: '提示：描述越详细，生成的公仔越符合你的想象',
       costCredits: '消耗 {credits} 积分',
       loginRequired: '请先登录',
-      loginRequiredDesc: '登录后才能使用AI手办生成功能',
+      loginRequiredDesc: '登录后才能使用AI公仔生成功能',
       cancel: '取消',
       goToLogin: '去登录',
-      generatedImage: '生成的手办',
+      generatedImage: '生成的公仔',
       generationFailed: '生成失败',
       insufficientCredits: '积分不足，请先充值',
       creditConsumeError: '积分消耗失败，请重试',
-      addedToGallery: '手办已自动添加到您的画廊！',
+      addedToGallery: '公仔已自动添加到您的画廊！',
       alreadyInGallery: '已存在于您的画廊中',
       addToGallery: '添加到画廊',
-      removedFromGallery: '手办已从您的画廊中移除',
+      removedFromGallery: '公仔已从您的画廊中移除',
       operationFailed: '操作失败，请重试',
       // 新增提示信息
       addToGalleryHint: '点击爱心按钮添加到画廊',
       removeFromGalleryHint: '点击爱心按钮从画廊中移除',
-      imageSaved: '手办已保存，点击爱心按钮展示到画廊',
+      imageSaved: '公仔已保存，点击爱心按钮展示到画廊',
       // 图片上传相关
       uploadImage: '上传参考图片',
-      uploadImageDesc: '上传一张图片，基于此图片生成手办',
+      uploadImageDesc: '上传一张图片，基于此图片生成公仔',
       clickToUpload: '点击上传图片',
       supportedFormats: '支持 JPG、PNG、WebP 格式（最大10MB）',
       optionalPrompt: '可选描述',
@@ -1428,19 +1428,19 @@ const translations = {
     },
     about: {
       badge: '关于Nano Banana',
-      title: '革新AI手办创作',
+      title: '革新AI公仔创作',
       subtitle: 'Nano Banana处于AI驱动3D创意的前沿，赋能艺术家、设计师和创作者，通过尖端人工智能技术将最狂野的想象力变为现实。',
       mission: {
         title: '我们的使命',
-        desc: '通过让专业级AI 3D模型生成技术为每个人所用，实现手办创作的民主化。我们相信创意应该没有界限，技术应该放大人类想象力，而不是取代它。',
+        desc: '通过让专业级AI 3D模型生成技术为每个人所用，实现公仔创作的民主化。我们相信创意应该没有界限，技术应该放大人类想象力，而不是取代它。',
       },
       vision: {
         title: '我们的愿景',
-        desc: '一个任何人都能在几秒钟内创作惊艳3D手办的世界，想法从脑海自由流向3D模型，AI成为人类表达和创新的终极创意伙伴。',
+        desc: '一个任何人都能在几秒钟内创作惊艳3D公仔的世界，想法从脑海自由流向3D模型，AI成为人类表达和创新的终极创意伙伴。',
       },
       feature1: {
         title: '先进AI技术',
-        desc: '由最先进的机器学习模型驱动，提供高质量、创意和独特的3D手办生成。',
+        desc: '由最先进的机器学习模型驱动，提供高质量、创意和独特的3D公仔生成。',
       },
       feature2: {
         title: '以用户为中心的设计',
@@ -1451,7 +1451,7 @@ const translations = {
         desc: '企业级安全措施，保护您的创意作品，确保您的知识产权安全。',
       },
       stats: {
-        images: '已创建手办',
+        images: '已创建公仔',
         users: '活跃用户',
         uptime: '运行时间',
         support: '支持服务',
@@ -1475,8 +1475,8 @@ const translations = {
     },
     pricing: {
       title: '选择您的套餐',
-      subtitle: '基于积分的灵活定价，每次手办生成仅需10积分',
-      creditInfo: '每次AI手办生成消耗 10 积分',
+      subtitle: '基于积分的灵活定价，每次公仔生成仅需10积分',
+      creditInfo: '每次AI公仔生成消耗 10 积分',
       basic: '基础套餐',
       advanced: '进阶套餐',
       professional: '专业套餐',
@@ -1487,26 +1487,26 @@ const translations = {
       features: {
         basic: [
           '500 积分',
-          '50 次AI手办生成',
+          '50 次AI公仔生成',
           '基础模型质量',
           '标准客服支持',
           '7天退款保证'
         ],
         advanced: [
           '1000 积分',
-          '100 次AI手办生成',
+          '100 次AI公仔生成',
           '高清模型质量',
           '优先客服支持',
           '30天退款保证',
-          '专属手办风格'
+          '专属公仔风格'
         ],
         professional: [
           '3000 积分',
-          '300 次AI手办生成',
+          '300 次AI公仔生成',
           '超高清模型质量',
           '24/7 专属客服',
           '90天退款保证',
-          '专属手办风格',
+          '专属公仔风格',
           '批量生成功能',
           'API 访问权限'
         ]
@@ -1529,7 +1529,7 @@ const translations = {
         }
       },
       contact: '还有疑问？联系我们获取更多信息',
-      startCreating: '开始AI手办创作',
+      startCreating: '开始AI公仔创作',
       contactSupport: '联系客服',
       loginRequired: '请登录继续',
       loginRequiredMessage: '您未登录，请先登录后再进行支付',
@@ -1552,21 +1552,21 @@ const translations = {
       viewGallery: '查看画廊',
       buyCredits: '购买积分',
       memberSince: '注册时间',
-      aiGenerations: 'AI手办生成次数',
+      aiGenerations: 'AI公仔生成次数',
       usedThisMonth: '本月已使用',
-      collectedWorks: '收藏手办',
-      collectedWorksDesc: '已收藏手办',
+      collectedWorks: '收藏公仔',
+      collectedWorksDesc: '已收藏公仔',
       membershipLevel: '会员等级',
       advancedUser: '高级用户',
       premiumUser: '高级用户',
       creditsOverview: '积分概览',
       availableCredits: '可用积分',
-      creditsDescription: '用于AI手办生成的积分',
+      creditsDescription: '用于AI公仔生成的积分',
       remainingGenerations: '剩余生成次数',
       creditsValue: '积分价值',
       buyMoreCredits: '购买更多积分',
-      aiGenerationHistory: 'AI手办生成记录',
-      imageGeneration: '手办生成',
+      aiGenerationHistory: 'AI公仔生成记录',
+      imageGeneration: '公仔生成',
       credits: '积分',
       noGenerationsYet: '还没有生成记录',
       // 新增翻译
@@ -1602,25 +1602,824 @@ const translations = {
       response_time: '我们通常在24小时内回复'
     },
     caseStudy: {
-      title: '一个设计，一套手办',
-      subtitle: '同一张人物图片可以生成一套完整的手办系列，包含多种风格和姿态',
+      title: '一个设计，一套公仔',
+      subtitle: '同一张人物图片可以生成一套完整的公仔系列，包含多种风格和姿态',
       originalTitle: '原始人物设计',
       originalDesc: '输入的人物参考图片',
       conclusion: {
-        title: '🎨 一套手办，多种可能',
-        desc: '通过AI技术，您可以将任何人物图片转换为一套完整的手办系列。无论是动漫、写实、奇幻还是机甲风格，都能生成配套的手办收藏品，让您的创意想法变成现实的手办系列。'
+        title: '🎨 一套公仔，多种可能',
+        desc: '通过AI技术，您可以将任何人物图片转换为一套完整的公仔系列。无论是动漫、写实、奇幻还是机甲风格，都能生成配套的公仔收藏品，让您的创意想法变成现实的公仔系列。'
+      }
+    }
+  },
+  'zh-tw': {
+    nav: {
+      home: '首頁',
+      pricing: '定價',
+      gallery: '畫廊',
+      about: '關於我們',
+      login: '登入',
+      getStarted: '開始使用',
+      aiGenerator: 'AI生成器'
+    },
+    hero: {
+      title: '將你的想法轉化為驚豔的公仔',
+      subtitle: '使用我們先進的AI 3D模型生成技術，在幾秒鐘內創作出美麗、獨特的公仔模型',
+      cta: '立即開始創作',
+      learnMore: '了解更多',
+      examplePrompt: '粉色頭髮的可愛動漫女孩公仔',
+    },
+    what: {
+      title: '什麼是Nano Banana？',
+      subtitle: '一個AI驅動的平台，將你的文字描述轉化為驚豔的3D公仔模型',
+      feature1: {
+        title: 'AI驅動生成',
+        desc: '先進的人工智慧在幾秒鐘內將你的文字描述轉化為驚豔、獨特的3D公仔模型',
+      },
+      feature2: {
+        title: '多種公仔風格',
+        desc: '選擇動漫、寫實、Q版、奇幻等數十種公仔風格',
+      },
+      feature3: {
+        title: '高品質3D模型',
+        desc: '生成詳細的3D模型，完美適用於3D列印、遊戲和收藏品',
+      },
+      feature4: {
+        title: '極速生成',
+        desc: '在30秒內獲得你的定制公仔模型。無需等待，無延遲 - 即時創作',
+      },
+    },
+    why: {
+      title: '為什麼選擇Nano Banana？',
+      subtitle: '體驗3D公仔創作的未來',
+      reason1: {
+        title: '隱私與安全',
+        desc: '你的提示詞和生成的3D模型完全私密。我們絕不會在未經許可的情況下儲存或分享你的創意內容',
+        stats: '隱私優先'
+      },
+      reason2: {
+        title: '創作者信賴',
+        desc: '加入超過50萬名藝術家、設計師和創作者，他們都依賴Nano Banana進行公仔專案',
+        stats: '創作者信賴'
+      },
+      reason3: {
+        title: '業界領先',
+        desc: '我們的AI模型採用最新技術訓練，相比其他平台提供卓越的3D模型品質',
+        stats: '頂級品質'
+      },
+      reason4: {
+        title: '持續改進',
+        desc: '我們根據用戶回饋和技術進步定期更新AI模型並添加新功能',
+        stats: '始終進化'
+      },
+      stats: {
+        uptime: '運行時間保證',
+        support: '客戶支援',
+        images: '已生成公仔',
+        styles: '公仔風格',
+      },
+    },
+    how: {
+      title: '如何使用',
+      subtitle: '創作公仔的三個簡單步驟',
+      step1: {
+        title: '輸入你的提示詞',
+        desc: '用簡單的詞彙描述你的公仔願景。盡可能創意和詳細',
+      },
+      step2: {
+        title: '選擇你的風格',
+        desc: '選擇各種公仔風格，如動漫、寫實、Q版等',
+      },
+      step3: {
+        title: '下載你的模型',
+        desc: '獲得令人驚豔的AI生成3D公仔模型，隨時可用於3D列印',
+      },
+    },
+    stats: {
+      images: '已創建公仔',
+      users: '活躍用戶',
+      uptime: '運行時間',
+      support: '支援服務',
+    },
+    testimonials: {
+      title: '用戶評價',
+      subtitle: '加入數千名滿意的創作者，他們已經使用Nano Banana將想法轉化為驚豔的公仔模型。以下是他們Nano Banana體驗的評價',
+      user1: {
+        name: '陳莎拉',
+        role: '3D藝術家',
+        text: 'Nano Banana徹底改變了我的創意工作流程。AI生成3D公仔的品質絕對令人驚豔，可用的風格種類令人難以置信。我每天都在客戶專案中使用它。',
+      },
+      user2: {
+        name: '馬庫斯·羅德里格斯',
+        role: '遊戲開發者',
+        text: '作為遊戲開發者，我需要快速獲得高品質3D模型。Nano Banana正是如此。速度和品質無與倫比，為我們團隊節省了無數時間和預算。',
+      },
+      user3: {
+        name: '艾米麗·沃森',
+        role: '收藏家',
+        text: '起初我對AI生成公仔持懷疑態度，但Nano Banana完全改變了我的想法。模型如此詳細和創意 - 有時甚至比我想像的更好。就像擁有一個個人雕塑師。',
+      },
+      user4: {
+        name: '金大衛',
+        role: '3D列印師',
+        text: '對於3D列印和收藏品，Nano Banana是一個遊戲改變者。多樣的風格和快速迭代的能力顯著加速了我的生產流程。強烈推薦！',
+      },
+      user5: {
+        name: '麗莎·湯普森',
+        role: '小企業主',
+        text: '經營小企業，我需要價格實惠但專業的3D模型用於產品。Nano Banana正是如此。品質可以與昂貴的定制作品相媲美，但具有完全的定制性。',
+      },
+      user6: {
+        name: '亞歷克斯·約翰遜',
+        role: '自由設計師',
+        text: 'Nano Banana的創意可能性是無限的。我可以探索需要手動創建數小時的想法和概念。它已成為我設計工具庫中的重要工具。',
+      },
+      stats: {
+        averageRating: '平均評分',
+        happyUsers: '滿意用戶',
+        imagesGenerated: '已生成公仔',
+        satisfactionRate: '滿意度',
+      },
+    },
+    faq: {
+      title: '常見問題',
+      subtitle: '關於Nano Banana你需要知道的一切',
+      contact: '還有問題？我們隨時為你提供幫助！',
+      contactButton: '聯繫支援',
+      q1: 'Nano Banana是如何工作的？',
+      a1: 'Nano Banana使用先進的AI模型來解讀你的文字描述並生成相應的3D公仔模型。只需輸入你想要創建的內容，選擇你喜歡的風格，我們的AI就會在幾秒鐘內創建獨特的3D模型。',
+      q2: '我可以生成什麼類型的公仔？',
+      a2: '你可以生成幾乎任何類型的公仔 - 從動漫角色到寫實人物、Q版風格、奇幻生物、動物等等。我們的AI支援150多種不同的公仔風格，可以處理複雜、詳細的提示詞。',
+      q3: '我可以創建的公仔數量有限制嗎？',
+      a3: '免費用戶每天最多可以生成10個公仔。高級訂閱用戶可以獲得無限生成、優先處理和訪問高級功能的權限，如更高細節級別和獨家公仔風格。',
+      q4: '生成的3D模型品質如何？',
+      a4: '免費用戶獲得標準品質的模型。高級用戶可以生成高細節模型，完美適用於3D列印、遊戲和專業用途。',
+      q5: '我可以商業使用生成的公仔嗎？',
+      a5: '是的！所有使用Nano Banana生成的公仔都可以用於商業目的。你擁有創作的完全權利，包括銷售、修改和分發它們的權利。',
+      q6: '生成公仔需要多長時間？',
+      a6: '大多數公仔在15-30秒內生成。高級用戶享受優先處理，在高峰時段可以將生成時間縮短到僅10秒。',
+      q7: 'Nano Banana與其他AI生成器有什麼不同？',
+      a7: 'Nano Banana專注於3D公仔生成，注重品質、速度和用戶體驗。我們使用最新的AI模型，提供比競爭對手更多的公仔風格，提供更好的提示詞理解，並保持業界最高的3D模型品質標準。',
+      q8: '我的資料安全私密嗎？',
+      a8: '絕對安全。我們認真對待隱私。你的提示詞和生成的3D模型都經過加密，絕不會與第三方共享。你可以隨時刪除你的帳戶和所有相關資料。',
+    },
+    footer: {
+      description: '使用Nano Banana的尖端AI技術，將你的想像力轉化為驚豔的3D公仔作品。通過簡單的文字提示，創作、分享和發現令人驚歎的3D模型。',
+      company: '公司',
+      product: '產品',
+      support: '支援',
+      legal: '法律',
+      copyright: '© 2025 Nano Banana. 保留所有權利。',
+      madeWith: '為創作者用心製作 ❤️',
+      poweredBy: 'AI驅動',
+      about: '關於我們',
+      careers: '招聘',
+      press: '新聞',
+      blog: '部落格',
+      features: '功能',
+      pricing: '價格',
+      api: 'API',
+      help: '幫助中心',
+      community: '社群',
+      contact: '聯繫我們',
+      terms: '服務條款',
+      privacy: '隱私政策',
+      cookies: 'Cookie政策',
+      gdpr: 'GDPR',
+      refundPolicy: '退款政策'
+    },
+    auth: {
+      login: {
+        title: '歡迎回來',
+        subtitle: '登入您的帳戶',
+        email: '電子郵件地址',
+        password: '密碼',
+        forgotPassword: '忘記密碼？',
+        loginButton: '登入',
+        loggingIn: '正在登入...',
+        orContinueWith: '或繼續使用',
+        noAccount: "還沒有帳戶？",
+        signUp: '立即註冊',
+        error: '登入時發生錯誤'
+      },
+      signup: {
+        title: '創建帳戶',
+        subtitle: '開始您的AI創作之旅',
+        email: '電子郵件地址',
+        password: '密碼',
+        confirmPassword: '確認密碼',
+        createAccount: '創建帳戶',
+        creating: '正在創建帳戶...',
+        orContinueWith: '或繼續使用',
+        hasAccount: '已經有帳戶？',
+        signIn: '立即登入',
+        error: '註冊時發生錯誤',
+        passwordMismatch: '密碼不匹配'
+      },
+      oauth: {
+        error: 'OAuth登入失敗'
+      },
+      forgotPassword: {
+        title: '忘記密碼',
+        subtitle: '我們將發送重置連結到您的信箱',
+        email: '電子郵件地址',
+        sendButton: '發送重置連結',
+        sending: '正在發送...',
+        backToLogin: '返回登入',
+        successMessage: '密碼重置連結已發送至您的信箱',
+        errorMessage: '發送重置連結時發生錯誤'
+      }
+    },
+    privacy: {
+      badge: '隱私保護',
+      title: '隱私政策',
+      lastUpdated: '最後更新：2025年8月',
+      section1: {
+        title: '資訊收集',
+        desc: '我們收集的資訊類型以及如何使用這些資訊來改善您的體驗。',
+        item1: '帳戶資訊：用戶名、信箱地址和基本帳戶設定',
+        item2: '使用資料：生成圖像、使用功能和互動記錄',
+        item3: '技術資訊：設備資訊、瀏覽器類型和IP地址',
+        item4: '支付資訊：通過安全的第三方支付處理器處理'
+      },
+      section2: {
+        title: '資訊使用',
+        desc: '我們如何使用收集的資訊來提供和改進我們的服務。',
+        item1: '提供和改進AI圖像生成服務',
+        item2: '個人化用戶體驗和推薦',
+        item3: '處理支付和帳戶管理',
+        item4: '發送服務更新和重要通知',
+        item5: '確保服務安全和防止濫用'
+      },
+      section3: {
+        title: '資訊共享',
+        desc: '我們不會出售、交易或轉讓您的個人資訊給第三方，除非獲得您的明確同意或法律要求。',
+        item1: '僅在您同意的情況下與第三方共享',
+        item2: '與法律要求相關的必要披露',
+        item3: '保護我們權利和安全的必要措施',
+        item4: '與可信服務提供商的有限共享'
+      },
+      section4: {
+        title: '資料安全',
+        desc: '我們採用業界標準的安全措施來保護您的個人資訊。',
+        item1: '使用SSL加密保護資料傳輸',
+        item2: '定期安全審計和漏洞掃描',
+        item3: '限制員工訪問個人資訊的權限',
+        item4: '定期備份和災難恢復計劃'
+      },
+      section5: {
+        title: '您的權利',
+        desc: '您對個人資訊享有的權利和控制選項。',
+        item1: '訪問和查看您的個人資訊',
+        item2: '更正或更新不準確的資訊',
+        item3: '刪除您的帳戶和相關資料',
+        item4: '選擇退出行銷通訊'
+      },
+      section6: {
+        title: '聯繫我們',
+        desc: '如果您對我們的隱私政策有任何疑問或需要行使您的權利，請通過以下方式聯繫我們。',
+        email: 'privacy@nanobanana.com',
+        response: '我們通常在24小時內回覆您的詢問'
+      }
+    },
+    terms: {
+      badge: '服務條款',
+      title: '服務條款',
+      lastUpdated: '最後更新：2025年8月',
+      section1: {
+        title: '服務描述',
+        desc: 'Nano Banana提供AI驅動的圖像生成服務，允許用戶通過文字提示創建獨特的藝術作品。我們的服務包括圖像生成、儲存和分享功能。'
+      },
+      section2: {
+        title: '用戶責任',
+        desc: '使用我們的服務時，您需要遵守以下規定：',
+        item1: '不得生成違法、有害或不當內容',
+        item2: '不得侵犯他人智慧財產權或隱私權',
+        item3: '不得濫用服務或進行惡意攻擊',
+        item4: '不得分享或傳播有害內容',
+        item5: '遵守所有適用的法律法規'
+      },
+      section3: {
+        title: '智慧財產權',
+        desc: '關於生成內容和平台使用的智慧財產權規定。',
+        item1: '您擁有使用我們服務生成的圖像',
+        item2: '我們保留平台和技術的智慧財產權',
+        item3: '不得複製或分發我們的專有技術',
+        item4: '遵守第三方內容的使用許可',
+        item5: '尊重原創內容的版權保護',
+        item6: '不得將生成內容用於商業用途'
+      },
+      section4: {
+        title: '服務限制',
+        desc: '我們保留限制或終止服務的權利，包括但不限於：',
+        item1: '違反服務條款的行為',
+        item2: '惡意或濫用行為',
+        item3: '技術問題或維護需求',
+        item4: '法律或監管要求',
+        item5: '超出合理使用範圍的行為',
+        item6: '影響其他用戶體驗的行為'
+      },
+      section5: {
+        title: '免責聲明',
+        desc: '我們提供"按現狀"的服務，不提供任何明示或暗示的保證。我們不對服務中斷、資料遺失或任何直接或間接損失承擔責任。',
+        item1: '服務可能因技術問題而中斷',
+        item2: '生成內容的品質不保證',
+        item3: '不承擔因使用服務產生的損失',
+        item4: '服務可能隨時變更或終止'
+      },
+      section6: {
+        title: '帳戶管理',
+        desc: '關於帳戶創建、使用和終止的規定。',
+        item1: '您必須提供真實有效的註冊資訊',
+        item2: '您負責保護帳戶安全',
+        item3: '我們可能暫停或終止違規帳戶',
+        item4: '資料將在帳戶終止後被刪除'
+      },
+      section7: {
+        title: '爭議解決',
+        desc: '如發生爭議，我們鼓勵通過友好協商解決。如無法協商解決，爭議將根據適用法律處理。'
+      },
+      section8: {
+        title: '法律適用',
+        desc: '本服務條款受中華人民共和國法律管轄，任何爭議將提交有管轄權的人民法院解決。'
+      },
+      section9: {
+        title: '聯繫我們',
+        desc: '如果您對我們的服務條款有任何疑問或需要幫助，請通過以下方式聯繫我們。',
+        email: 'legal@nanobanana.com',
+        response: '我們通常在24小時內回覆您的詢問'
+      },
+      refundPolicy: {
+        title: '退款政策',
+        lastUpdated: '最後更新：2025年8月10日',
+        section1: {
+          title: '所有銷售均為最終交易',
+          desc: '由於數位服務的即時訪問性質，一旦支付，所有訂閱費用（包括月度/年度費用）均視為最終交易，不退還。這包括但不限於：未使用的訂閱時間、帳戶使用不足、因個人原因取消訂閱、服務功能符合描述但不符合用戶預期。'
+        },
+        section2: {
+          title: '訂閱取消',
+          desc: '當您取消訂閱時：',
+          items: [
+            '取消僅停止未來的自動續費，不影響當前訂閱週期',
+            '您的積分和服務訪問權限在當前計費週期結束前仍然有效',
+            '與影片會員服務類似，您可以在訂閱週期結束前繼續使用'
+          ]
+        },
+        section3: {
+          title: '服務中斷異常處理',
+          desc: '在發生重大服務中斷的情況下：',
+          items: [
+            '對於因非人為因素導致的持續超過72小時的服務中斷，用戶可以申請等額服務時間補償',
+            '這種補償是唯一的補救措施，不涉及現金退款',
+            '輕微中斷或計劃維護不構成補償條件'
+          ]
+        },
+        section4: {
+          title: '爭議解決',
+          desc: '如果您對收費有任何疑問，請在7個工作日內聯繫我們：',
+          items: [
+            '聯繫media@nanobananamodle.com並提供交易ID',
+            '提供支付憑證和問題描述',
+            '我們將在15個工作日內調查並提供書面回覆',
+            '所有爭議解決結果均為最終決定'
+          ]
+        },
+        section5: {
+          title: '政策修改權利',
+          desc: 'nano-banana保留隨時修改此政策的權利。修改後的政策將在網站上公開發佈後立即生效。',
+          highlights: [
+            '您已完全理解和接受此政策',
+            '您確認數位服務的特殊性質',
+            '您同意放棄任何退款請求的權利'
+          ]
+        },
+        section6: {
+          title: '條款確認',
+          desc: '通過支付訂閱費用，您確認已閱讀、理解和同意本退款政策中的所有條款。'
+        },
+        section7: {
+          title: '聯繫資訊',
+          desc: '如果您對此政策或帳單有任何疑問，請與我們聯繫：',
+          email: 'media@nanobananamodle.com'
+        }
+      }
+    },
+    cta: {
+      title: '準備好創作你的傑作了嗎？',
+      subtitle: '加入已經在使用Nano Banana的數千名藝術家和創作者',
+      button: '立即開始',
+      badge: '今天開始創作',
+      pricing: '查看價格',
+      stats: {
+        images: '已創建圖像',
+        users: '活躍用戶',
+        uptime: '運行時間',
+        support: '支援服務',
+      },
+      testimonials: {
+        averageRating: '平均評分',
+        happyUsers: '滿意用戶',
+        imagesGenerated: '已生成圖像',
+        satisfactionRate: '滿意度',
+      },
+    },
+    gallery: {
+      title: '公仔畫廊',
+      subtitle: '探索我們社群使用Nano Banana AI技術創作的驚豔公仔模型。獲得靈感並創作你自己的傑作',
+      loadMore: '載入更多作品',
+      prompt: '提示詞：',
+      refresh: '重新整理畫廊',
+      loginRequired: '請先登入以將公仔添加到您的畫廊',
+      alreadyInGallery: '此公仔已在您的畫廊中',
+      addedToGallery: '成功添加到您的畫廊！',
+      addFailed: '添加到畫廊失敗，請重試',
+      removedFromGallery: '成功從您的畫廊中移除',
+      deleteImage: '刪除圖片',
+      zoomImage: '放大查看',
+      removeFailed: '從畫廊移除失敗，請重試',
+      operationFailed: '操作失敗，請重試',
+      promptCopied: '提示詞已複製到剪貼簿！',
+      copyFailed: '複製提示詞失敗，請重試',
+      userGenerated: {
+        badge: '用戶創作',
+        title: '用戶AI生成公仔',
+        desc: '使用Nano Banana AI技術創建的獨特公仔模型',
+        prompt: '您的創意提示',
+        createdAt: '創建於'
+      },
+      image1: {
+        title: '神秘精靈公仔',
+        desc: '一個充滿發光翅膀和空靈美麗的魔法精靈公仔',
+      },
+      image2: {
+        title: '賽博朋克機器人公仔',
+        desc: '一個擁有霓虹細節和金屬質感的未來機器人公仔',
+      },
+      image3: {
+        title: '海洋美人魚公仔',
+        desc: '一個充滿活力海洋色彩的寧靜美人魚公仔',
+      },
+      image4: {
+        title: '山龍公仔',
+        desc: '擁有戲劇性翅膀和鱗片的雄偉龍公仔',
+      },
+      image5: {
+        title: '太空探索者公仔',
+        desc: '一個擁有星系主題細節的驚豔宇航員公仔',
+      },
+      image6: {
+        title: '抽象藝術公仔',
+        desc: '充滿流動藝術設計的 vibrant 抽象公仔',
+      },
+      image7: {
+        title: '野生動物公仔',
+        desc: '一個擁有詳細毛髮和特徵的雄偉動物公仔',
+      },
+      image8: {
+        title: '建築公仔',
+        desc: '擁有獨特幾何圖案的現代建築公仔',
+      },
+      image9: {
+        title: '復古汽車公仔',
+        desc: '懷舊風格中的經典復古汽車公仔',
+      },
+      prompt1: '魔法精靈公仔，發光翅膀，空靈美麗，奇幻風格',
+      prompt2: '賽博朋克機器人公仔，霓虹細節，金屬質感，未來設計',
+      prompt3: '美人魚公仔，海洋色彩，寧靜美麗，水生主題',
+      prompt4: '龍公仔，雄偉翅膀，戲劇性鱗片，奇幻生物',
+      prompt5: '宇航員公仔，星系細節，太空探索者，宇宙主題',
+      prompt6: '抽象公仔，活力色彩，流動設計，藝術風格',
+      prompt7: '動物公仔，詳細毛髮，真實特徵，野生動物主題',
+      prompt8: '建築公仔，幾何圖案，現代建築，城市設計',
+      prompt9: '復古汽車公仔，經典設計，懷舊風格，復古主題',
+      // 新增圖片的翻譯
+      image10: {
+        title: '薄荷水',
+        desc: '清新的薄荷水，展現自然之美'
+      },
+      prompt10: '清新的薄荷水，展現自然之美',
+      image11: {
+        title: '貝殼',
+        desc: '美麗的貝殼，充滿海洋魅力'
+      },
+      prompt11: '美麗的貝殼，充滿海洋魅力',
+      image12: {
+        title: '茶杯',
+        desc: '優雅的茶杯，傳統韻味十足'
+      },
+      prompt12: '優雅的茶杯，傳統韻味十足',
+      image13: {
+        title: '海浪',
+        desc: '動態的海浪，展現自然力量'
+      },
+      prompt13: '動態的海浪，展現自然力量',
+      image14: {
+        title: '海鷗',
+        desc: '優雅的海鷗，翱翔在海洋上空'
+      },
+      prompt14: '優雅的海鷗，翱翔在海洋上空',
+      image15: {
+        title: '荷葉',
+        desc: '清新的荷葉，展現自然之美'
+      },
+      prompt15: '清新的荷葉，展現自然之美',
+      image16: {
+        title: '建築',
+        desc: '現代建築，充滿城市魅力'
+      },
+      prompt16: '現代建築，充滿城市魅力',
+      image17: {
+        title: '江南',
+        desc: '傳統江南水鄉風光'
+      },
+      prompt17: '傳統江南水鄉風光',
+      image18: {
+        title: '舊巷子',
+        desc: '懷舊的舊巷子，充滿歷史韻味'
+      },
+      prompt18: '懷舊的舊巷子，充滿歷史韻味',
+      image19: {
+        title: '橘子',
+        desc: '新鮮的橘子，展現自然之美'
+      },
+      prompt19: '新鮮的橘子，展現自然之美',
+      image20: {
+        title: '螞蟻',
+        desc: '微小的螞蟻，展現自然細節'
+      },
+      prompt20: '微小的螞蟻，展現自然細節',
+      image21: {
+        title: '蜻蜓',
+        desc: '優雅的蜻蜓，展現自然之美'
+      },
+      prompt21: '優雅的蜻蜓，展現自然之美',
+      image22: {
+        title: '蜻蜓眼睛',
+        desc: '詳細的蜻蜓眼睛，展現自然之美'
+      },
+      prompt22: '詳細的蜻蜓眼睛，展現自然之美',
+      image23: {
+        title: '小蘑菇',
+        desc: '可愛的小蘑菇，充滿自然魅力'
+      },
+      prompt23: '可愛的小蘑菇，充滿自然魅力'
+    },
+    draw: {
+      prompt: '生成自提示詞：',
+      heroExamplePrompt: '粉色頭髮的可愛動漫女孩公仔',
+      title: 'AI公仔生成器',
+      subtitle: '使用我們先進的AI技術，將你的想法轉化為驚豔的3D公仔模型',
+      promptPlaceholder: '描述你想要創建的公仔...',
+      styleLabel: '公仔風格',
+      sizeLabel: '模型尺寸',
+      generateButton: '生成公仔',
+      generating: '生成中...',
+      downloadButton: '下載',
+      favoriteButton: '收藏',
+      regenerateButton: '重新生成',
+      successMessage: '公仔生成成功！',
+      errorMessage: '生成失敗，請重試',
+      waitingForGeneration: '等待生成',
+      success: '成功',
+      describeYourIdea: '描述你的公仔創意',
+      describeYourIdeaDesc: '詳細描述你想要生成的公仔內容',
+      result: '生成結果',
+      enterPromptAndClick: '輸入提示詞並點擊生成按鈕',
+      styleRealistic: '🎭 寫實風格 - 逼真的公仔效果',
+      styleAnime: '🎌 動漫風格 - 日式動漫公仔',
+      styleOilPainting: '🖼️ Q版風格 - 可愛的Q版公仔',
+      styleWatercolor: '💧 奇幻風格 - 奇幻生物公仔',
+      styleSketch: '✏️ 簡約風格 - 極簡公仔設計',
+      sizeSquare: '⬜ 小型',
+      sizePortrait: '📱 中型',
+      sizeLandscape: '🖥️ 大型',
+      sizeWidescreen: '🎬 超大',
+      sizeMobilePortrait: '📱 迷你',
+      tip: '提示：描述越詳細，生成的公仔越符合你的想像',
+      costCredits: '消耗 {credits} 積分',
+      loginRequired: '請先登入',
+      loginRequiredDesc: '登入後才能使用AI公仔生成功能',
+      cancel: '取消',
+      goToLogin: '去登入',
+      generatedImage: '生成的公仔',
+      generationFailed: '生成失敗',
+      insufficientCredits: '積分不足，請先充值',
+      creditConsumeError: '積分消耗失敗，請重試',
+      addedToGallery: '公仔已自動添加到您的畫廊！',
+      alreadyInGallery: '已存在於您的畫廊中',
+      addToGallery: '添加到畫廊',
+      removedFromGallery: '公仔已從您的畫廊中移除',
+      operationFailed: '操作失敗，請重試',
+      // 新增提示資訊
+      addToGalleryHint: '點擊愛心按鈕添加到畫廊',
+      removeFromGalleryHint: '點擊愛心按鈕從畫廊中移除',
+      imageSaved: '公仔已儲存，點擊愛心按鈕展示到畫廊',
+      // 圖片上傳相關
+      uploadImage: '上傳參考圖片',
+      uploadImageDesc: '上傳一張圖片，基於此圖片生成公仔',
+      clickToUpload: '點擊上傳圖片',
+      supportedFormats: '支援 JPG、PNG、WebP 格式（最大10MB）',
+      optionalPrompt: '可選描述',
+      imageRequired: '請上傳一張圖片',
+      invalidFileType: '請上傳有效的圖片檔案',
+      fileTooLarge: '檔案過大（最大10MB）',
+      uploadTip: '上傳清晰的參考圖片以獲得最佳效果',
+    },
+    about: {
+      badge: '關於Nano Banana',
+      title: '革新AI公仔創作',
+      subtitle: 'Nano Banana處於AI驅動3D創意的前沿，賦能藝術家、設計師和創作者，通過尖端人工智慧技術將最狂野的想像力變為現實。',
+      mission: {
+        title: '我們的使命',
+        desc: '通過讓專業級AI 3D模型生成技術為每個人所用，實現公仔創作的民主化。我們相信創意應該沒有界限，技術應該放大人類想像力，而不是取代它。',
+      },
+      vision: {
+        title: '我們的願景',
+        desc: '一個任何人都能在幾秒鐘內創作驚豔3D公仔的世界，想法從腦海自由流向3D模型，AI成為人類表達和創新的終極創意夥伴。',
+      },
+      feature1: {
+        title: '先進AI技術',
+        desc: '由最先進的機器學習模型驅動，提供高品質、創意和獨特的3D公仔生成。',
+      },
+      feature2: {
+        title: '以用戶為中心的設計',
+        desc: '為所有技能水平的創作者設計的直觀介面，從初學者到專業3D藝術家和設計師。',
+      },
+      feature3: {
+        title: '隱私與安全',
+        desc: '企業級安全措施，保護您的創意作品，確保您的智慧財產權安全。',
+      },
+      stats: {
+        images: '已創建公仔',
+        users: '活躍用戶',
+        uptime: '運行時間',
+        support: '支援服務',
+      },
+      values: {
+        title: '我們的價值觀',
+        subtitle: '這些核心原則指導我們在Nano Banana所做的一切',
+        value1: {
+          title: '卓越',
+          desc: '我們在服務的每個方面都追求卓越，從AI品質到用戶體驗。',
+        },
+        value2: {
+          title: '創意',
+          desc: '我們慶祝和培養創意，相信它是人類進步的基礎。',
+        },
+        value3: {
+          title: '社群',
+          desc: '我們建立並支援一個充滿活力的創作者、藝術家和創新者社群。',
+        },
+      },
+    },
+    pricing: {
+      title: '選擇您的套餐',
+      subtitle: '基於積分的靈活定價，每次公仔生成僅需10積分',
+      creditInfo: '每次AI公仔生成消耗 10 積分',
+      basic: '基礎套餐',
+      advanced: '進階套餐',
+      professional: '專業套餐',
+      price: '價格',
+      oneTime: '/ 一次性',
+      credits: '積分',
+      generations: '次生成',
+      features: {
+        basic: [
+          '500 積分',
+          '50 次AI公仔生成',
+          '基礎模型品質',
+          '標準客服支援',
+          '7天退款保證'
+        ],
+        advanced: [
+          '1000 積分',
+          '100 次AI公仔生成',
+          '高清模型品質',
+          '優先客服支援',
+          '30天退款保證',
+          '專屬公仔風格'
+        ],
+        professional: [
+          '3000 積分',
+          '300 次AI公仔生成',
+          '超高清模型品質',
+          '24/7 專屬客服',
+          '90天退款保證',
+          '專屬公仔風格',
+          '批量生成功能',
+          'API 訪問權限'
+        ]
+      },
+      popular: '最受歡迎',
+      buyNow: '立即購買',
+      whyChoose: '為什麼選擇我們的積分系統？',
+      benefits: {
+        flexible: {
+          title: '靈活使用',
+          desc: '積分永久有效，隨時使用，不設時間限制'
+        },
+        transparent: {
+          title: '透明定價',
+          desc: '每次生成固定10積分，價格清晰明了'
+        },
+        value: {
+          title: '高性價比',
+          desc: '相比按次付費，積分套餐更經濟實惠'
+        }
+      },
+      contact: '還有疑問？聯繫我們獲取更多資訊',
+      startCreating: '開始AI公仔創作',
+      contactSupport: '聯繫客服',
+      loginRequired: '請登入繼續',
+      loginRequiredMessage: '您未登入，請先登入後再進行支付',
+    },
+    profile: {
+      title: '個人資料',
+      subtitle: '管理您的帳戶資訊和查看使用統計',
+      pleaseLogin: '請先登入',
+      goToLogin: '去登入',
+      loginRequired: '需要登入',
+      loginToView: '請登入以查看您的個人資料',
+      username: '用戶名',
+      userEmail: '用戶信箱',
+      userPoints: '用戶積分',
+      freeAttempts: '免費嘗試次數',
+      verifiedUser: '已驗證用戶',
+      accountSettings: '帳戶設定',
+      startAICreation: '開始AI創作',
+      startGenerating: '開始生成',
+      viewGallery: '查看畫廊',
+      buyCredits: '購買積分',
+      memberSince: '註冊時間',
+      aiGenerations: 'AI公仔生成次數',
+      usedThisMonth: '本月已使用',
+      collectedWorks: '收藏公仔',
+      collectedWorksDesc: '已收藏公仔',
+      membershipLevel: '會員等級',
+      advancedUser: '高級用戶',
+      premiumUser: '高級用戶',
+      creditsOverview: '積分概覽',
+      availableCredits: '可用積分',
+      creditsDescription: '用於AI公仔生成的積分',
+      remainingGenerations: '剩餘生成次數',
+      creditsValue: '積分價值',
+      buyMoreCredits: '購買更多積分',
+      aiGenerationHistory: 'AI公仔生成記錄',
+      imageGeneration: '公仔生成',
+      credits: '積分',
+      noGenerationsYet: '還沒有生成記錄',
+      // 新增翻譯
+      welcomeBack: '歡迎回來！',
+      currentCredits: '當前積分',
+      totalEarned: '累計獲得',
+      totalSpent: '累計消費',
+      transactionHistory: '交易記錄',
+      consumption: '消費',
+      recharge: '充值',
+      generationResult: '生成結果',
+      creditRecharge: '積分充值',
+      packagePurchase: '套餐購買',
+      noTransactionRecords: '暫無交易記錄',
+      purchaseCredits: '購買積分',
+      // 套餐相關翻譯
+      basicPackage: '基礎套餐',
+      advancedPackage: '進階套餐',
+      professionalPackage: '專業套餐',
+      rechargePoints: '充值積分',
+      // 新用戶贈送積分翻譯
+      newUserGift: '新用戶贈送積分',
+      // 贈送類型翻譯
+      gift: '贈送'
+    },
+    // 懸浮球支援翻譯
+    floating_support: {
+      title: '需要幫助？',
+      message: '如果您在使用過程中遇到任何問題，請通過郵件聯繫我們，我們會盡快幫您解決！',
+      close: '關閉',
+      customer_service_email: '客服信箱',
+      click_to_send: '點擊發送郵件',
+      response_time: '我們通常在24小時內回覆'
+    },
+    caseStudy: {
+      title: '一個設計，一套公仔',
+      subtitle: '同一張人物圖片可以生成一套完整的公仔系列，包含多種風格和姿態',
+      originalTitle: '原始人物設計',
+      originalDesc: '輸入的人物參考圖片',
+      conclusion: {
+        title: '🎨 一套公仔，多種可能',
+        desc: '通過AI技術，您可以將任何人物圖片轉換為一套完整的公仔系列。無論是動漫、寫實、奇幻還是機甲風格，都能生成配套的公仔收藏品，讓您的創意想法變成現實的公仔系列。'
       }
     }
   }
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<'en' | 'zh'>('en'); // 默认英文，避免水合错误
+  const [language, setLanguage] = useState<'en' | 'zh' | 'zh-tw'>('zh-tw'); // 默认中文繁体
   
   // 在客户端挂载后从localStorage读取语言设置
   useEffect(() => {
     const savedLanguage = localStorage.getItem('nano-banana-language');
-    if (savedLanguage === 'zh' || savedLanguage === 'en') {
+    if (savedLanguage === 'zh' || savedLanguage === 'en' || savedLanguage === 'zh-tw') {
       setLanguage(savedLanguage);
     }
   }, []);
@@ -1641,7 +2440,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
     return value || key;
   };
 
-  const handleSetLanguage = (lang: 'en' | 'zh') => {
+  const handleSetLanguage = (lang: 'en' | 'zh' | 'zh-tw') => {
     setLanguage(lang);
     // 保存到localStorage
     if (typeof window !== 'undefined') {
