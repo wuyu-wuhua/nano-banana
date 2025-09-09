@@ -128,6 +128,17 @@ const Footer: React.FC = () => {
                   Nav - AI
                 </a>
               </li>
+              <li>
+                <a 
+                  href="https://www.aitoolgo.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  title="AiToolGo"
+                >
+                  AiToolGo
+                </a>
+              </li>
             </ul>
           </div>
         </div>
