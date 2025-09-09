@@ -117,6 +117,17 @@ const Footer: React.FC = () => {
                   {t('footer.contact')}
                 </button>
               </li>
+              <li>
+                <a 
+                  href="https://nav-ai.net/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors text-sm sm:text-base"
+                  title="Nav - AI"
+                >
+                  Nav - AI
+                </a>
+              </li>
             </ul>
           </div>
         </div>
